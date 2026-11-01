@@ -1,0 +1,82 @@
+name: "mcp-probe"
+description: "Security, token-cost and quality checks for MCP servers"
+author: "Tim Erben"
+branding:
+  icon: "shield"
+  color: "green"
+
+inputs:
+  command:
+    description: "Command that starts a stdio MCP server, e.g. `node build/index.js`"
+    required: false
+  url:
+    description: "URL of a remote MCP server (instead of command)"
+    required: false
+  headers:
+    description: "HTTP headers for remote servers, one `Name: value` per line"
+    required: false
+  fail-on:
+    description: "Fail if a finding of this severity or worse exists (critical|high|medium|low|info|none)"
+    default: "high"
+  min-score:
+    description: "Fail if the score is below this value (0-100)"
+    default: "0"
+  baseline:
+    description: "Path to a committed baseline file for rug-pull detection (optional)"
+    required: false
+  sarif:
+    description: "Path to write a SARIF file to (upload it with github/codeql-action/upload-sarif)"
+    required: false
+  version:
+    description: "mcp-probe version to use"
+    default: "latest"
+
+outputs:
+  score:
+    description: "Score 0-100"
+    value: ${{ steps.probe.outputs.score }}
+  grade:
+    description: "Grade A-F"
+    value: ${{ steps.probe.outputs.grade }}
+
+runs:
+  using: "composite"
+  steps:
+    - id: probe
+      shell: bash
+      env:
+        INPUT_COMMAND: ${{ inputs.command }}
+        INPUT_URL: ${{ inputs.url }}
+        INPUT_HEADERS: ${{ inputs.headers }}
+        INPUT_FAIL_ON: ${{ inputs.fail-on }}
+        INPUT_MIN_SCORE: ${{ inputs.min-score }}
+        INPUT_BASELINE: ${{ inputs.baseline }}
+        INPUT_SARIF: ${{ inputs.sarif }}
+        INPUT_VERSION: ${{ inputs.version }}
+      run: |
+        set -u
+        args=(scan --fail-on "$INPUT_FAIL_ON" --min-score "$INPUT_MIN_SCORE"
+              --report-md "$RUNNER_TEMP/mcp-probe.md" --report-json "$RUNNER_TEMP/mcp-probe.json")
+        if [ -n "$INPUT_BASELINE" ]; then args+=(--baseline "$INPUT_BASELINE"); fi
+        if [ -n "$INPUT_SARIF" ]; then args+=(--report-sarif "$INPUT_SARIF"); fi
+        if [ -n "$INPUT_URL" ]; then
+          args+=(--url "$INPUT_URL")
+          while IFS= read -r h; do if [ -n "$h" ]; then args+=(-H "$h"); fi; done <<< "$INPUT_HEADERS"
+        elif [ -n "$INPUT_COMMAND" ]; then
+          read -r -a cmd <<< "$INPUT_COMMAND"
+          args+=(-- "${cmd[@]}")
+        else
+          echo "::error::mcp-probe: set either 'command' or 'url'"; exit 2
+        fi
+
+        npx --yes "mcp-probe@${INPUT_VERSION}" "${args[@]}"
+        code=$?
+
+        if [ -f "$RUNNER_TEMP/mcp-probe.md" ]; then cat "$RUNNER_TEMP/mcp-probe.md" >> "$GITHUB_STEP_SUMMARY"; fi
+        if [ -f "$RUNNER_TEMP/mcp-probe.json" ]; then
+          echo "score=$(node -p 'require(process.argv[1]).score' "$RUNNER_TEMP/mcp-probe.json")" >> "$GITHUB_OUTPUT"
+          echo "grade=$(node -p 'require(process.argv[1]).grade' "$RUNNER_TEMP/mcp-probe.json")" >> "$GITHUB_OUTPUT"
+        fi
+        if [ $code -eq 2 ]; then echo "::error::mcp-probe could not connect to the MCP server"; fi
+        if [ $code -eq 1 ]; then echo "::error::mcp-probe: findings exceed the configured threshold (see job summary)"; fi
+        exit $code

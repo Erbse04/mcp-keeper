@@ -1,0 +1,53 @@
+{
+  "name": "mcp-probe",
+  "version": "0.1.0",
+  "description": "Security, token-cost and quality checks for MCP (Model Context Protocol) servers and client configs.",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "vitest run",
+    "dev": "tsx src/cli.ts",
+    "prepublishOnly": "npm run build && npm test"
+  },
+  "keywords": [
+    "mcp",
+    "model-context-protocol",
+    "security",
+    "prompt-injection",
+    "linter",
+    "ai-agents",
+    "audit"
+  ],
+  "author": "Tim Erben (https://www.tim-erben.de)",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.32.2",
+    "commander": "^12.1.0",
+    "zod": "^4.6.7"
+  },
+  "devDependencies": {
+    "@types/node": "^22.20.5",
+    "tsx": "^4.23.15",
+    "typescript": "^5.9.3",
+    "vitest": "^2.1.9"
+  },
+  "type": "module",
+  "bin": {
+    "mcp-probe": "dist/cli.js"
+  },
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "README.de.md",
+    "LICENSE",
+    "docs"
+  ],
+  "engines": {
+    "node": ">=18"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tim-erben/mcp-probe"
+  }
+}
