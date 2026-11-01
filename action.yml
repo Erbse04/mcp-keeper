@@ -1,4 +1,4 @@
-name: "mcp-probe"
+name: "mcp-guard"
 description: "Security, token-cost and quality checks for MCP servers"
 author: "Tim Erben"
 branding:
@@ -28,7 +28,7 @@ inputs:
     description: "Path to write a SARIF file to (upload it with github/codeql-action/upload-sarif)"
     required: false
   version:
-    description: "mcp-probe version to use"
+    description: "mcp-guard version to use"
     default: "latest"
 
 outputs:
@@ -56,7 +56,7 @@ runs:
       run: |
         set -u
         args=(scan --fail-on "$INPUT_FAIL_ON" --min-score "$INPUT_MIN_SCORE"
-              --report-md "$RUNNER_TEMP/mcp-probe.md" --report-json "$RUNNER_TEMP/mcp-probe.json")
+              --report-md "$RUNNER_TEMP/mcp-guard.md" --report-json "$RUNNER_TEMP/mcp-guard.json")
         if [ -n "$INPUT_BASELINE" ]; then args+=(--baseline "$INPUT_BASELINE"); fi
         if [ -n "$INPUT_SARIF" ]; then args+=(--report-sarif "$INPUT_SARIF"); fi
         if [ -n "$INPUT_URL" ]; then
@@ -66,17 +66,17 @@ runs:
           read -r -a cmd <<< "$INPUT_COMMAND"
           args+=(-- "${cmd[@]}")
         else
-          echo "::error::mcp-probe: set either 'command' or 'url'"; exit 2
+          echo "::error::mcp-guard: set either 'command' or 'url'"; exit 2
         fi
 
-        npx --yes "mcp-probe@${INPUT_VERSION}" "${args[@]}"
+        npx --yes "@erbse04/mcp-guard@${INPUT_VERSION}" "${args[@]}"
         code=$?
 
-        if [ -f "$RUNNER_TEMP/mcp-probe.md" ]; then cat "$RUNNER_TEMP/mcp-probe.md" >> "$GITHUB_STEP_SUMMARY"; fi
-        if [ -f "$RUNNER_TEMP/mcp-probe.json" ]; then
-          echo "score=$(node -p 'require(process.argv[1]).score' "$RUNNER_TEMP/mcp-probe.json")" >> "$GITHUB_OUTPUT"
-          echo "grade=$(node -p 'require(process.argv[1]).grade' "$RUNNER_TEMP/mcp-probe.json")" >> "$GITHUB_OUTPUT"
+        if [ -f "$RUNNER_TEMP/mcp-guard.md" ]; then cat "$RUNNER_TEMP/mcp-guard.md" >> "$GITHUB_STEP_SUMMARY"; fi
+        if [ -f "$RUNNER_TEMP/mcp-guard.json" ]; then
+          echo "score=$(node -p 'require(process.argv[1]).score' "$RUNNER_TEMP/mcp-guard.json")" >> "$GITHUB_OUTPUT"
+          echo "grade=$(node -p 'require(process.argv[1]).grade' "$RUNNER_TEMP/mcp-guard.json")" >> "$GITHUB_OUTPUT"
         fi
-        if [ $code -eq 2 ]; then echo "::error::mcp-probe could not connect to the MCP server"; fi
-        if [ $code -eq 1 ]; then echo "::error::mcp-probe: findings exceed the configured threshold (see job summary)"; fi
+        if [ $code -eq 2 ]; then echo "::error::mcp-guard could not connect to the MCP server"; fi
+        if [ $code -eq 1 ]; then echo "::error::mcp-guard: findings exceed the configured threshold (see job summary)"; fi
         exit $code

@@ -1,6 +1,6 @@
-# mcp-probe report: PayPal
+# mcp-guard report: PayPal
 
-![mcp-probe](https://img.shields.io/badge/mcp--probe-B%20%C2%B7%2084-green)
+![mcp-guard](https://img.shields.io/badge/mcp--guard-B%20%C2%B7%2084-green)
 
 | | |
 |---|---|
@@ -10,7 +10,7 @@
 | Exposes | 28 tools · 0 prompts · 0 resources |
 | Context cost | ≈10,482 tokens per request |
 | Score | **84/100 (B)** |
-| Scanned | 2026-11-01T11:13:32.199Z with mcp-probe 0.1.0 |
+| Scanned | 2026-11-01T11:26:53.883Z with mcp-guard 0.1.0 |
 
 ## Scores
 

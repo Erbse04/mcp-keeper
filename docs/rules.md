@@ -2,7 +2,7 @@
 
 Every check, why it matters and how to fix it. Disable individual rules with `--disable ID[,ID…]`.
 
-## Server rules (`mcp-probe scan`)
+## Server rules (`mcp-guard scan`)
 
 ### MCP001
 
@@ -29,7 +29,7 @@ Clients put tool descriptions, parameter descriptions, prompt and resource descr
 
 **Invisible or deceptive characters** · security
 
-- **critical** — Unicode tag characters (U+E0000–U+E007F). They are invisible in UIs but models read them as ASCII; `mcp-probe` decodes the hidden text for you.
+- **critical** — Unicode tag characters (U+E0000–U+E007F). They are invisible in UIs but models read them as ASCII; `mcp-guard` decodes the hidden text for you.
 - **high** — bidi overrides (U+202A–U+202E, U+2066–U+2069) that make text render differently than it reads.
 - **medium** — zero-width characters, control characters, and runs of 60+ spaces or 8+ newlines that push text out of view in approval dialogs.
 
@@ -95,7 +95,7 @@ Duplicate names (high); characters outside `A–Z a–z 0–9 _ - .` or longer t
 
 Entries that fail validation against the official MCP schema (high — the official TypeScript client rejects the whole list), failed list calls (medium), outdated protocol version (low), missing server version (low).
 
-## Config rules (`mcp-probe config`)
+## Config rules (`mcp-guard config`)
 
 ### CFG001
 

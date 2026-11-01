@@ -1,9 +1,9 @@
 {
   "tool": {
-    "name": "mcp-probe",
+    "name": "mcp-guard",
     "version": "0.1.0"
   },
-  "scannedAt": "2026-11-01T11:13:32.100Z",
+  "scannedAt": "2026-11-01T11:26:53.787Z",
   "snapshot": {
     "target": "npx -y @browserbasehq/mcp-server-browserbase@2.4.3",
     "transport": "stdio",

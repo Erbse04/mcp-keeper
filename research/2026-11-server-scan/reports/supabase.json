@@ -1,9 +1,9 @@
 {
   "tool": {
-    "name": "mcp-probe",
+    "name": "mcp-guard",
     "version": "0.1.0"
   },
-  "scannedAt": "2026-11-01T11:13:32.213Z",
+  "scannedAt": "2026-11-01T11:26:53.898Z",
   "snapshot": {
     "target": "npx -y @supabase/mcp-server-supabase@0.15.0 --access-token=dummy",
     "transport": "stdio",

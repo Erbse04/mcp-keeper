@@ -1,9 +1,9 @@
 {
   "tool": {
-    "name": "mcp-probe",
+    "name": "mcp-guard",
     "version": "0.1.0"
   },
-  "scannedAt": "2026-11-01T11:13:32.209Z",
+  "scannedAt": "2026-11-01T11:26:53.894Z",
   "snapshot": {
     "target": "npx -y @modelcontextprotocol/server-sequential-thinking@2.0.0",
     "transport": "stdio",

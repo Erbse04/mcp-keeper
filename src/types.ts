@@ -61,7 +61,7 @@ export interface CategoryScore {
 }
 
 export interface ScanResult {
-  tool: { name: "mcp-probe"; version: string };
+  tool: { name: "mcp-guard"; version: string };
   scannedAt: string;
   snapshot: ServerSnapshot;
   findings: Finding[];

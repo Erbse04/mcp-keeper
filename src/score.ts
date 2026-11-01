@@ -74,7 +74,7 @@ export function analyze(snapshot: ServerSnapshot, opts: AnalyzeOptions = {}): Sc
   const perTool = snapshot.tools.map((t) => ({ name: t.name, tokens: estimateTokens(toolContextPayload(t)) }));
   const { score, grade, categories } = scoreFindings(findings);
   return {
-    tool: { name: "mcp-probe", version: VERSION },
+    tool: { name: "mcp-guard", version: VERSION },
     scannedAt: new Date().toISOString(),
     snapshot,
     findings,

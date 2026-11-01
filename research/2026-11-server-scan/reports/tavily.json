@@ -1,9 +1,9 @@
 {
   "tool": {
-    "name": "mcp-probe",
+    "name": "mcp-guard",
     "version": "0.1.0"
   },
-  "scannedAt": "2026-11-01T11:13:32.214Z",
+  "scannedAt": "2026-11-01T11:26:53.899Z",
   "snapshot": {
     "target": "npx -y tavily-mcp@0.2.22",
     "transport": "stdio",

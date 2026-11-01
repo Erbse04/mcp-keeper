@@ -1,6 +1,6 @@
-# mcp-probe report: desktop-commander
+# mcp-guard report: desktop-commander
 
-![mcp-probe](https://img.shields.io/badge/mcp--probe-C%20%C2%B7%2078-yellow)
+![mcp-guard](https://img.shields.io/badge/mcp--guard-C%20%C2%B7%2078-yellow)
 
 | | |
 |---|---|
@@ -10,7 +10,7 @@
 | Exposes | 25 tools · 0 prompts · 2 resources |
 | Context cost | ≈12,547 tokens per request |
 | Score | **78/100 (C)** |
-| Scanned | 2026-11-01T11:13:32.122Z with mcp-probe 0.1.0 |
+| Scanned | 2026-11-01T11:26:53.809Z with mcp-guard 0.1.0 |
 
 ## Scores
 

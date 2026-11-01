@@ -1,6 +1,6 @@
-# mcp-probe report: kubernetes
+# mcp-guard report: kubernetes
 
-![mcp-probe](https://img.shields.io/badge/mcp--probe-A%20%C2%B7%2098-brightgreen)
+![mcp-guard](https://img.shields.io/badge/mcp--guard-A%20%C2%B7%2098-brightgreen)
 
 | | |
 |---|---|
@@ -10,7 +10,7 @@
 | Exposes | 23 tools · 1 prompts · 5 resources |
 | Context cost | ≈5,763 tokens per request |
 | Score | **98/100 (A)** |
-| Scanned | 2026-11-01T11:13:32.153Z with mcp-probe 0.1.0 |
+| Scanned | 2026-11-01T11:26:53.838Z with mcp-guard 0.1.0 |
 
 ## Scores
 

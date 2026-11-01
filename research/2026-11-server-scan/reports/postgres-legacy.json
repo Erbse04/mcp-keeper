@@ -1,9 +1,9 @@
 {
   "tool": {
-    "name": "mcp-probe",
+    "name": "mcp-guard",
     "version": "0.1.0"
   },
-  "scannedAt": "2026-11-01T11:13:32.206Z",
+  "scannedAt": "2026-11-01T11:26:53.891Z",
   "snapshot": {
     "target": "npx -y @modelcontextprotocol/server-postgres@0.6.2 postgresql://localhost/none",
     "transport": "stdio",

@@ -1,6 +1,6 @@
-# mcp-probe report: Heroku MCP Server
+# mcp-guard report: Heroku MCP Server
 
-![mcp-probe](https://img.shields.io/badge/mcp--probe-A%20%C2%B7%2094-brightgreen)
+![mcp-guard](https://img.shields.io/badge/mcp--guard-A%20%C2%B7%2094-brightgreen)
 
 | | |
 |---|---|
@@ -10,7 +10,7 @@
 | Exposes | 33 tools · 0 prompts · 1 resources |
 | Context cost | ≈5,065 tokens per request |
 | Score | **94/100 (A)** |
-| Scanned | 2026-11-01T11:13:32.146Z with mcp-probe 0.1.0 |
+| Scanned | 2026-11-01T11:26:53.832Z with mcp-guard 0.1.0 |
 
 ## Scores
 

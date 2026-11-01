@@ -1,9 +1,9 @@
 {
   "tool": {
-    "name": "mcp-probe",
+    "name": "mcp-guard",
     "version": "0.1.0"
   },
-  "scannedAt": "2026-11-01T11:13:32.103Z",
+  "scannedAt": "2026-11-01T11:26:53.789Z",
   "snapshot": {
     "target": "npx -y chrome-devtools-mcp@1.12.0",
     "transport": "stdio",

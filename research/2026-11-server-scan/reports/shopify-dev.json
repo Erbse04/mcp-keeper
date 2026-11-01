@@ -1,9 +1,9 @@
 {
   "tool": {
-    "name": "mcp-probe",
+    "name": "mcp-guard",
     "version": "0.1.0"
   },
-  "scannedAt": "2026-11-01T11:13:32.212Z",
+  "scannedAt": "2026-11-01T11:26:53.896Z",
   "snapshot": {
     "target": "npx -y @shopify/dev-mcp@1.18.0",
     "transport": "stdio",

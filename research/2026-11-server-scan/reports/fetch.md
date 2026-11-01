@@ -1,6 +1,6 @@
-# mcp-probe report: mcp-fetch
+# mcp-guard report: mcp-fetch
 
-![mcp-probe](https://img.shields.io/badge/mcp--probe-A%20%C2%B7%20100-brightgreen)
+![mcp-guard](https://img.shields.io/badge/mcp--guard-A%20%C2%B7%20100-brightgreen)
 
 | | |
 |---|---|
@@ -10,7 +10,7 @@
 | Exposes | 1 tools · 1 prompts · 0 resources |
 | Context cost | ≈262 tokens per request |
 | Score | **100/100 (A)** |
-| Scanned | 2026-11-01T11:13:32.128Z with mcp-probe 0.1.0 |
+| Scanned | 2026-11-01T11:26:53.814Z with mcp-guard 0.1.0 |
 
 ## Scores
 

@@ -1,6 +1,6 @@
-# mcp-probe report: MongoDB MCP Server
+# mcp-guard report: MongoDB MCP Server
 
-![mcp-probe](https://img.shields.io/badge/mcp--probe-B%20%C2%B7%2086-green)
+![mcp-guard](https://img.shields.io/badge/mcp--guard-B%20%C2%B7%2086-green)
 
 | | |
 |---|---|
@@ -10,7 +10,7 @@
 | Exposes | 27 tools · 0 prompts · 3 resources |
 | Context cost | ≈15,046 tokens per request |
 | Score | **86/100 (B)** |
-| Scanned | 2026-11-01T11:13:32.187Z with mcp-probe 0.1.0 |
+| Scanned | 2026-11-01T11:26:53.870Z with mcp-guard 0.1.0 |
 
 ## Scores
 

@@ -1,5 +1,5 @@
-# .github/workflows/mcp-probe.yml — add this to your MCP server repository
-name: mcp-probe
+# .github/workflows/mcp-guard.yml — add this to your MCP server repository
+name: mcp-guard
 on: [push, pull_request]
 permissions:
   contents: read
@@ -12,14 +12,14 @@ jobs:
       - uses: actions/setup-node@v4
         with: { node-version: 22 }
       - run: npm ci && npm run build
-      - uses: tim-erben/mcp-probe@v0
+      - uses: Erbse04/mcp-guard@v0
         with:
           command: node build/index.js
           fail-on: high
           min-score: 80
           # baseline: mcp-baseline.json   # commit one created with --update-baseline
-          sarif: mcp-probe.sarif
+          sarif: mcp-guard.sarif
       - uses: github/codeql-action/upload-sarif@v3
         if: always()
         with:
-          sarif_file: mcp-probe.sarif
+          sarif_file: mcp-guard.sarif

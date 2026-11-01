@@ -1,6 +1,6 @@
-# mcp-probe report: github-mcp-server
+# mcp-guard report: github-mcp-server
 
-![mcp-probe](https://img.shields.io/badge/mcp--probe-B%20%C2%B7%2088-green)
+![mcp-guard](https://img.shields.io/badge/mcp--guard-B%20%C2%B7%2088-green)
 
 | | |
 |---|---|
@@ -10,7 +10,7 @@
 | Exposes | 26 tools · 0 prompts · 0 resources |
 | Context cost | ≈3,972 tokens per request |
 | Score | **88/100 (B)** |
-| Scanned | 2026-11-01T11:13:32.143Z with mcp-probe 0.1.0 |
+| Scanned | 2026-11-01T11:26:53.828Z with mcp-guard 0.1.0 |
 
 ## Scores
 

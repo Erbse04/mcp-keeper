@@ -25,7 +25,7 @@ export function toText(r: ScanResult, opts: { verbose?: boolean } = {}): string 
   const s = r.snapshot;
   const lines: string[] = [];
   const gradeColor = r.grade === "A" || r.grade === "B" ? green : r.grade === "C" ? yellow : red;
-  lines.push(bold(`mcp-probe ${r.tool.version}`) + dim(`  ·  ${s.target}`));
+  lines.push(bold(`mcp-guard ${r.tool.version}`) + dim(`  ·  ${s.target}`));
   lines.push(
     `${s.serverInfo ? `${bold(s.serverInfo.name)} ${s.serverInfo.version}` : "unknown server"}  ·  protocol ${s.protocolVersion ?? "?"}  ·  ${s.transport}` +
       `  ·  ${r.stats.tools} tools, ${r.stats.prompts} prompts, ${r.stats.resources} resources  ·  ≈${r.stats.estimatedTokens.toLocaleString("en")} tokens`,
@@ -53,16 +53,16 @@ const mdEscape = (s: string) => s.replace(/\|/g, "\\|").replace(/\n/g, " ").repl
 
 export function badgeUrl(r: ScanResult): string {
   const msg = encodeURIComponent(`${r.grade} · ${r.score}`).replace(/-/g, "--");
-  return `https://img.shields.io/badge/mcp--probe-${msg}-${GRADE_COLOR[r.grade]}`;
+  return `https://img.shields.io/badge/mcp--guard-${msg}-${GRADE_COLOR[r.grade]}`;
 }
 
 export function toMarkdown(r: ScanResult): string {
   const s = r.snapshot;
   const counts = countBySeverity(r.findings);
   const out: string[] = [];
-  out.push(`# mcp-probe report: ${s.serverInfo?.name ?? s.target}`);
+  out.push(`# mcp-guard report: ${s.serverInfo?.name ?? s.target}`);
   out.push("");
-  out.push(`![mcp-probe](${badgeUrl(r)})`);
+  out.push(`![mcp-guard](${badgeUrl(r)})`);
   out.push("");
   out.push(`| | |\n|---|---|`);
   out.push(`| Target | \`${mdEscape(s.target)}\` |`);
@@ -71,7 +71,7 @@ export function toMarkdown(r: ScanResult): string {
   out.push(`| Exposes | ${r.stats.tools} tools · ${r.stats.prompts} prompts · ${r.stats.resources} resources |`);
   out.push(`| Context cost | ≈${r.stats.estimatedTokens.toLocaleString("en")} tokens per request |`);
   out.push(`| Score | **${r.score}/100 (${r.grade})** |`);
-  out.push(`| Scanned | ${r.scannedAt} with mcp-probe ${r.tool.version} |`);
+  out.push(`| Scanned | ${r.scannedAt} with mcp-guard ${r.tool.version} |`);
   out.push("");
   out.push(`## Scores`);
   out.push("");
@@ -113,7 +113,7 @@ export const toJson = (r: unknown) => JSON.stringify(r, null, 2) + "\n";
 
 /** shields.io endpoint badge: https://shields.io/badges/endpoint-badge */
 export function toBadge(r: ScanResult) {
-  return JSON.stringify({ schemaVersion: 1, label: "mcp-probe", message: `${r.grade} · ${r.score}`, color: GRADE_COLOR[r.grade] }, null, 2) + "\n";
+  return JSON.stringify({ schemaVersion: 1, label: "mcp-guard", message: `${r.grade} · ${r.score}`, color: GRADE_COLOR[r.grade] }, null, 2) + "\n";
 }
 
 /* ---------------- SARIF (GitHub code scanning) ---------------- */
@@ -129,14 +129,14 @@ export function toSarif(findings: Finding[], artifactUri = "mcp.json"): string {
       {
         tool: {
           driver: {
-            name: "mcp-probe",
-            informationUri: "https://github.com/tim-erben/mcp-probe",
+            name: "mcp-guard",
+            informationUri: "https://github.com/Erbse04/mcp-guard",
             rules: ruleIds.map((id) => ({
               id,
               name: id,
               shortDescription: { text: ruleTitle(id) },
               fullDescription: { text: RULES.find((r) => r.id === id)?.description ?? ruleTitle(id) },
-              helpUri: `https://github.com/tim-erben/mcp-probe/blob/main/docs/rules.md#${id.toLowerCase()}`,
+              helpUri: `https://github.com/Erbse04/mcp-guard/blob/main/docs/rules.md#${id.toLowerCase()}`,
             })),
           },
         },
@@ -161,7 +161,7 @@ export function toSarif(findings: Finding[], artifactUri = "mcp.json"): string {
 /* ---------------- config report ---------------- */
 
 export function configToText(servers: ConfiguredServer[], findings: Map<ConfiguredServer, Finding[]>, files: string[]): string {
-  const lines: string[] = [bold("mcp-probe config audit")];
+  const lines: string[] = [bold("mcp-guard config audit")];
   lines.push(dim(`Scanned ${files.length} file(s): ${files.join(", ") || "none found"}`));
   lines.push("");
   if (servers.length === 0) lines.push("  No MCP servers configured.");
@@ -179,7 +179,7 @@ export function configToText(servers: ConfiguredServer[], findings: Map<Configur
 }
 
 export function configToMarkdown(servers: ConfiguredServer[], findings: Map<ConfiguredServer, Finding[]>, files: string[]): string {
-  const out = [`# mcp-probe config audit`, "", `Files: ${files.map((f) => `\`${f}\``).join(", ") || "none"}`, ""];
+  const out = [`# mcp-guard config audit`, "", `Files: ${files.map((f) => `\`${f}\``).join(", ") || "none"}`, ""];
   out.push(`| Server | Client | Finding | Fix |\n|---|---|---|---|`);
   for (const s of servers) {
     const fs = findings.get(s) ?? [];

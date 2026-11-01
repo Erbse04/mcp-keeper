@@ -1,8 +1,8 @@
-# mcp-probe (Deutsch)
+# mcp-guard (Deutsch)
 
 **Sicherheits-, Kosten- und Qualitätsprüfung für MCP-Server, mit einem Befehl.**
 
-`mcp-probe` verbindet sich mit einem MCP-Server (Model Context Protocol) und prüft alles, was das Sprachmodell zu sehen bekommt: Tools, Parameterbeschreibungen, Prompts, Ressourcen und Server-Anweisungen. Gefunden werden unter anderem:
+`mcp-guard` verbindet sich mit einem MCP-Server (Model Context Protocol) und prüft alles, was das Sprachmodell zu sehen bekommt: Tools, Parameterbeschreibungen, Prompts, Ressourcen und Server-Anweisungen. Gefunden werden unter anderem:
 
 - versteckte Anweisungen in Tool-Beschreibungen (Tool Poisoning, Prompt Injection)
 - unsichtbare Zeichen und per Unicode-Tags versteckter Text (wird im Klartext angezeigt)
@@ -12,12 +12,12 @@
 - kaputte Schemas, ungültige oder doppelte Tool-Namen
 - nachträgliche, stille Änderungen an Tools (Baseline-Vergleich, „Rug Pull“)
 
-Zusätzlich prüft `mcp-probe config` die MCP-Konfigurationsdateien von Claude Desktop, Claude Code, Cursor, VS Code, Windsurf, Gemini CLI, Zed und LM Studio auf Klartext-Secrets, nicht festgelegte Paketversionen, unverschlüsselte Verbindungen und riskante Docker-Optionen.
+Zusätzlich prüft `mcp-guard config` die MCP-Konfigurationsdateien von Claude Desktop, Claude Code, Cursor, VS Code, Windsurf, Gemini CLI, Zed und LM Studio auf Klartext-Secrets, nicht festgelegte Paketversionen, unverschlüsselte Verbindungen und riskante Docker-Optionen.
 
 ```bash
-npx mcp-probe scan -- npx -y @modelcontextprotocol/server-memory
-npx mcp-probe scan --url https://mcp.example.com/mcp -H "Authorization: Bearer $TOKEN"
-npx mcp-probe config
+npx @erbse04/mcp-guard scan -- npx -y @modelcontextprotocol/server-memory
+npx @erbse04/mcp-guard scan --url https://mcp.example.com/mcp -H "Authorization: Bearer $TOKEN"
+npx @erbse04/mcp-guard config
 ```
 
 Es gibt kein Konto und keine Telemetrie. Ausgaben sind als Text, Markdown, JSON, SARIF (GitHub Code Scanning) und als Badge möglich.

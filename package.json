@@ -1,5 +1,5 @@
 {
-  "name": "mcp-probe",
+  "name": "@erbse04/mcp-guard",
   "version": "0.1.0",
   "description": "Security, token-cost and quality checks for MCP (Model Context Protocol) servers and client configs.",
   "main": "dist/index.js",
@@ -33,7 +33,7 @@
   },
   "type": "module",
   "bin": {
-    "mcp-probe": "dist/cli.js"
+    "mcp-guard": "dist/cli.js"
   },
   "types": "dist/index.d.ts",
   "files": [
@@ -48,6 +48,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/tim-erben/mcp-probe"
+    "url": "git+https://github.com/Erbse04/mcp-guard.git"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "homepage": "https://github.com/Erbse04/mcp-guard#readme",
+  "bugs": {
+    "url": "https://github.com/Erbse04/mcp-guard/issues"
   }
 }

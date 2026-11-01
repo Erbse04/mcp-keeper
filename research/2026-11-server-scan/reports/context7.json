@@ -1,9 +1,9 @@
 {
   "tool": {
-    "name": "mcp-probe",
+    "name": "mcp-guard",
     "version": "0.1.0"
   },
-  "scannedAt": "2026-11-01T11:13:32.108Z",
+  "scannedAt": "2026-11-01T11:26:53.795Z",
   "snapshot": {
     "target": "npx -y @upstash/context7-mcp@4.4.4",
     "transport": "stdio",
