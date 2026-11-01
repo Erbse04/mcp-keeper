@@ -101,7 +101,7 @@ async function openClient(target: Target, opts: ConnectOptions, mode?: "streamab
     transport = "streamable-http";
   }
   const observing = new ObservingTransport(inner);
-  const client = new Client({ name: "mcp-guard", version: VERSION }, { capabilities: {} });
+  const client = new Client({ name: "mcp-keeper", version: VERSION }, { capabilities: {} });
   const t0 = Date.now();
   try {
     await withTimeout(client.connect(observing, { timeout: timeoutMs }), timeoutMs, "connect");

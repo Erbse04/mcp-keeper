@@ -1,9 +1,9 @@
 {
   "tool": {
-    "name": "mcp-guard",
+    "name": "mcp-keeper",
     "version": "0.1.0"
   },
-  "scannedAt": "2026-11-01T11:26:53.829Z",
+  "scannedAt": "2026-11-01T11:33:45.731Z",
   "snapshot": {
     "target": "npx -y @modelcontextprotocol/server-gitlab@2025.4.25",
     "transport": "stdio",

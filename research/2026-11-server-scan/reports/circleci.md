@@ -1,6 +1,6 @@
-# mcp-guard report: mcp-server-circleci
+# mcp-keeper report: mcp-server-circleci
 
-![mcp-guard](https://img.shields.io/badge/mcp--guard-C%20%C2%B7%2076-yellow)
+![mcp-keeper](https://img.shields.io/badge/mcp--keeper-C%20%C2%B7%2076-yellow)
 
 | | |
 |---|---|
@@ -10,7 +10,7 @@
 | Exposes | 13 tools · 0 prompts · 0 resources |
 | Context cost | ≈12,758 tokens per request |
 | Score | **76/100 (C)** |
-| Scanned | 2026-11-01T11:26:53.793Z with mcp-guard 0.1.0 |
+| Scanned | 2026-11-01T11:33:45.690Z with mcp-keeper 0.1.0 |
 
 ## Scores
 

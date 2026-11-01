@@ -1,6 +1,6 @@
-# mcp-guard report: example-servers/postgres
+# mcp-keeper report: example-servers/postgres
 
-![mcp-guard](https://img.shields.io/badge/mcp--guard-A%20%C2%B7%2094-brightgreen)
+![mcp-keeper](https://img.shields.io/badge/mcp--keeper-A%20%C2%B7%2094-brightgreen)
 
 | | |
 |---|---|
@@ -10,7 +10,7 @@
 | Exposes | 1 tools · 0 prompts · 0 resources |
 | Context cost | ≈33 tokens per request |
 | Score | **94/100 (A)** |
-| Scanned | 2026-11-01T11:26:53.891Z with mcp-guard 0.1.0 |
+| Scanned | 2026-11-01T11:33:45.792Z with mcp-keeper 0.1.0 |
 
 ## Scores
 

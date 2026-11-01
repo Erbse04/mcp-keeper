@@ -1,6 +1,6 @@
 # MCP server scan, 1 November 2026
 
-41 popular MCP servers scanned with mcp-guard 0.1.0 (40 connected, 39 listed tools).
+41 popular MCP servers scanned with mcp-keeper 0.1.0 (40 connected, 39 listed tools).
 
 - `servers.json` — servers, exact versions and the placeholder credentials used
 - `run.mjs` — runs the scan (6 in parallel); `reanalyze.mjs` — re-applies the rules to saved snapshots offline

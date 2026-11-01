@@ -1,10 +1,8 @@
-# mcp-guard
+# mcp-keeper
 
 **Security, token-cost and quality checks for MCP servers — in one command.**
 
-npm: [`@erbse04/mcp-guard`](https://www.npmjs.com/package/@erbse04/mcp-guard) · command: `mcp-guard` · (not related to the unscoped npm package `mcp-guard`)
-
-`mcp-guard` connects to any [Model Context Protocol](https://modelcontextprotocol.io) server, reads everything it exposes to the model (tools, parameter schemas, prompts, resources, server instructions) and checks it for:
+`mcp-keeper` connects to any [Model Context Protocol](https://modelcontextprotocol.io) server, reads everything it exposes to the model (tools, parameter schemas, prompts, resources, server instructions) and checks it for:
 
 - 🛑 **Tool poisoning & prompt injection** – instructions hidden in descriptions, “don’t tell the user”, references to `~/.ssh`, tool shadowing, silent BCCs
 - 👻 **Invisible text** – Unicode tag characters (“ASCII smuggling”, decoded for you), zero-width and bidi characters, whitespace padding
@@ -17,9 +15,9 @@ npm: [`@erbse04/mcp-guard`](https://www.npmjs.com/package/@erbse04/mcp-guard) ·
 It also audits the MCP **config files** of Claude Desktop, Claude Code, Cursor, VS Code, Windsurf, Gemini CLI, Zed and LM Studio for plaintext secrets, unpinned `npx`/`uvx` packages, `http://` endpoints and risky Docker flags.
 
 ```text
-$ npx @erbse04/mcp-guard scan -- npx -y @modelcontextprotocol/server-memory
+$ npx mcp-keeper scan -- npx -y @modelcontextprotocol/server-memory
 
-mcp-guard 0.1.0  ·  npx -y @modelcontextprotocol/server-memory
+mcp-keeper 0.1.0  ·  npx -y @modelcontextprotocol/server-memory
 memory-server 1.0.0  ·  protocol 2025-11-25  ·  stdio  ·  9 tools, 0 prompts, 1 resources  ·  ≈1,108 tokens
 
   Score 92/100  (A)    security 100  ·  efficiency 100  ·  quality 92  ·  compliance 100
@@ -34,8 +32,8 @@ No account, no telemetry, nothing leaves your machine except the connection to t
 ## Install
 
 ```bash
-npx @erbse04/mcp-guard --help          # run without installing
-npm i -g @erbse04/mcp-guard            # or install globally (Node.js ≥ 18)
+npx mcp-keeper --help          # run without installing
+npm i -g mcp-keeper            # or install globally (Node.js ≥ 18)
 ```
 
 ## Usage
@@ -45,18 +43,18 @@ npm i -g @erbse04/mcp-guard            # or install globally (Node.js ≥ 18)
 Everything after `--` is the command that starts the server:
 
 ```bash
-mcp-guard scan -- npx -y @modelcontextprotocol/server-filesystem ~/Documents
-mcp-guard scan -e API_KEY=xyz -- uvx my-mcp-server
-mcp-guard scan -- node ./build/index.js
+mcp-keeper scan -- npx -y @modelcontextprotocol/server-filesystem ~/Documents
+mcp-keeper scan -e API_KEY=xyz -- uvx my-mcp-server
+mcp-keeper scan -- node ./build/index.js
 ```
 
-Like MCP clients, `mcp-guard` passes only a minimal environment (PATH, HOME, …) to the server. Use `-e NAME=value` for what the server needs, or `--inherit-env` to pass your full environment (e.g. behind a corporate proxy) — only for servers you trust, since that includes every secret in your shell.
+Like MCP clients, `mcp-keeper` passes only a minimal environment (PATH, HOME, …) to the server. Use `-e NAME=value` for what the server needs, or `--inherit-env` to pass your full environment (e.g. behind a corporate proxy) — only for servers you trust, since that includes every secret in your shell.
 
 ### Scan a remote server
 
 ```bash
-mcp-guard scan --url https://mcp.example.com/mcp
-mcp-guard scan --url https://mcp.example.com/mcp -H "Authorization: Bearer $TOKEN"
+mcp-keeper scan --url https://mcp.example.com/mcp
+mcp-keeper scan --url https://mcp.example.com/mcp -H "Authorization: Bearer $TOKEN"
 ```
 
 Streamable HTTP is tried first, then legacy SSE.
@@ -64,27 +62,27 @@ Streamable HTTP is tried first, then legacy SSE.
 ### Audit your client configs
 
 ```bash
-mcp-guard config                       # auto-discovers Claude, Cursor, VS Code, Windsurf, … configs
-mcp-guard config ./.cursor/mcp.json    # specific files (JSON with comments is fine)
-mcp-guard config --deep                # additionally start and scan every configured server
+mcp-keeper config                       # auto-discovers Claude, Cursor, VS Code, Windsurf, … configs
+mcp-keeper config ./.cursor/mcp.json    # specific files (JSON with comments is fine)
+mcp-keeper config --deep                # additionally start and scan every configured server
 ```
 
 ### Output formats
 
 ```bash
-mcp-guard scan -f md -o report.md -- …      # Markdown report incl. badge and per-tool token table
-mcp-guard scan -f json -- …                 # full machine-readable result
-mcp-guard scan -f sarif -o mcp.sarif -- …   # GitHub code scanning
-mcp-guard scan --badge badge.json -- …      # shields.io endpoint badge
-mcp-guard scan --save-snapshot s.json -- …  # raw snapshot of everything the server exposed
-mcp-guard scan --snapshot s.json            # re-analyze a snapshot offline
+mcp-keeper scan -f md -o report.md -- …      # Markdown report incl. badge and per-tool token table
+mcp-keeper scan -f json -- …                 # full machine-readable result
+mcp-keeper scan -f sarif -o mcp.sarif -- …   # GitHub code scanning
+mcp-keeper scan --badge badge.json -- …      # shields.io endpoint badge
+mcp-keeper scan --save-snapshot s.json -- …  # raw snapshot of everything the server exposed
+mcp-keeper scan --snapshot s.json            # re-analyze a snapshot offline
 ```
 
 ### Rug-pull protection (baselines)
 
 ```bash
-mcp-guard scan --baseline mcp-baseline.json --update-baseline -- npx -y some-server@1.4.0   # after you reviewed it
-mcp-guard scan --baseline mcp-baseline.json -- npx -y some-server@1.4.0                     # later / in CI
+mcp-keeper scan --baseline mcp-baseline.json --update-baseline -- npx -y some-server@1.4.0   # after you reviewed it
+mcp-keeper scan --baseline mcp-baseline.json -- npx -y some-server@1.4.0                     # later / in CI
 ```
 
 Any change to a tool’s description, schema or annotations, or to the server instructions, is reported as **high**.
@@ -94,13 +92,13 @@ Any change to a tool’s description, schema or annotations, or to the server in
 Exit codes: `0` passed · `1` threshold failed · `2` could not connect.
 
 ```bash
-mcp-guard scan --fail-on high --min-score 80 -- node build/index.js
+mcp-keeper scan --fail-on high --min-score 80 -- node build/index.js
 ```
 
 GitHub Action:
 
 ```yaml
-- uses: Erbse04/mcp-guard@v0
+- uses: Erbse04/mcp-keeper@v0
   with:
     command: node build/index.js
     fail-on: high
@@ -114,7 +112,7 @@ The action prints a Markdown report into the job summary and can upload SARIF to
 Show your score in your README:
 
 ```bash
-mcp-guard scan -f md -- node build/index.js | grep -m1 'img.shields.io'
+mcp-keeper scan -f md -- node build/index.js | grep -m1 'img.shields.io'
 ```
 
 or commit `badge.json` from `--badge` and use `https://img.shields.io/endpoint?url=<raw-url-of-badge.json>`.
@@ -146,19 +144,19 @@ There are separate scores for *security*, *efficiency*, *quality* and *complianc
 | CFG004 | config | `--privileged`, host network, mounting `/`, `$HOME` or the Docker socket |
 | CFG005 | config | Filesystem servers with access to `/` or the whole home directory |
 
-Details: [`docs/rules.md`](docs/rules.md) · `mcp-guard rules` · disable with `--disable MCP005,MCP201`.
+Details: [`docs/rules.md`](docs/rules.md) · `mcp-keeper rules` · disable with `--disable MCP005,MCP201`.
 
 ## Limits — please read
 
 - Pattern-based checks can have false positives and **cannot prove a server is safe**. A clean report means “no known red flags”, not “audited”.
-- `mcp-guard` only looks at what a server *declares*. It does not call tools and cannot see what the server code does at runtime.
+- `mcp-keeper` only looks at what a server *declares*. It does not call tools and cannot see what the server code does at runtime.
 - Token counts are estimates (~4 characters per token); real tokenizers differ by model.
 - `scan` and `config --deep` **start** the servers you point them at. Only scan code you are willing to run, ideally in a container or VM.
 
 ## Library use
 
 ```ts
-import { collectSnapshot, analyze, toMarkdown } from "@erbse04/mcp-guard";
+import { collectSnapshot, analyze, toMarkdown } from "mcp-keeper";
 
 const snapshot = await collectSnapshot({ kind: "stdio", command: "node", args: ["build/index.js"] });
 const result = analyze(snapshot);

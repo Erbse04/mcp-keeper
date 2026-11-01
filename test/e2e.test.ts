@@ -35,7 +35,7 @@ describe("end to end against fixture servers", () => {
   }, 30_000);
 
   it("CLI: exit codes, formats and baseline", async () => {
-    const dir = mkdtempSync(join(tmpdir(), "mcp-guard-"));
+    const dir = mkdtempSync(join(tmpdir(), "mcp-keeper-"));
     const good = ["scan", "--fail-on", "medium", "--", process.execPath, join(here, "fixtures", "server.mjs"), join(here, "fixtures", "good.json")];
     await expect(probe([...good])).resolves.toBeDefined();
 

@@ -1,6 +1,6 @@
-# mcp-guard report: Slack MCP Server
+# mcp-keeper report: Slack MCP Server
 
-![mcp-guard](https://img.shields.io/badge/mcp--guard-A%20%C2%B7%2098-brightgreen)
+![mcp-keeper](https://img.shields.io/badge/mcp--keeper-A%20%C2%B7%2098-brightgreen)
 
 | | |
 |---|---|
@@ -10,7 +10,7 @@
 | Exposes | 8 tools · 0 prompts · 0 resources |
 | Context cost | ≈782 tokens per request |
 | Score | **98/100 (A)** |
-| Scanned | 2026-11-01T11:26:53.897Z with mcp-guard 0.1.0 |
+| Scanned | 2026-11-01T11:33:45.799Z with mcp-keeper 0.1.0 |
 
 ## Scores
 

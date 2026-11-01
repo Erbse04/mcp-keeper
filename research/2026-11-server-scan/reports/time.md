@@ -1,6 +1,6 @@
-# mcp-guard report: mcp-time
+# mcp-keeper report: mcp-time
 
-![mcp-guard](https://img.shields.io/badge/mcp--guard-A%20%C2%B7%20100-brightgreen)
+![mcp-keeper](https://img.shields.io/badge/mcp--keeper-A%20%C2%B7%20100-brightgreen)
 
 | | |
 |---|---|
@@ -10,7 +10,7 @@
 | Exposes | 2 tools · 0 prompts · 0 resources |
 | Context cost | ≈286 tokens per request |
 | Score | **100/100 (A)** |
-| Scanned | 2026-11-01T11:26:53.900Z with mcp-guard 0.1.0 |
+| Scanned | 2026-11-01T11:33:45.801Z with mcp-keeper 0.1.0 |
 
 ## Scores
 

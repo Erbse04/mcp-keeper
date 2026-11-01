@@ -1,6 +1,6 @@
-# mcp-guard report: mcp-servers/everything
+# mcp-keeper report: mcp-servers/everything
 
-![mcp-guard](https://img.shields.io/badge/mcp--guard-A%20%C2%B7%2098-brightgreen)
+![mcp-keeper](https://img.shields.io/badge/mcp--keeper-A%20%C2%B7%2098-brightgreen)
 
 | | |
 |---|---|
@@ -10,7 +10,7 @@
 | Exposes | 16 tools · 4 prompts · 9 resources |
 | Context cost | ≈2,727 tokens per request |
 | Score | **98/100 (A)** |
-| Scanned | 2026-11-01T11:26:53.812Z with mcp-guard 0.1.0 |
+| Scanned | 2026-11-01T11:33:45.713Z with mcp-keeper 0.1.0 |
 
 ## Scores
 

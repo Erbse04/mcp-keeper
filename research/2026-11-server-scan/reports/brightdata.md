@@ -1,6 +1,6 @@
-# mcp-guard report: Bright Data
+# mcp-keeper report: Bright Data
 
-![mcp-guard](https://img.shields.io/badge/mcp--guard-A%20%C2%B7%2090-brightgreen)
+![mcp-keeper](https://img.shields.io/badge/mcp--keeper-A%20%C2%B7%2090-brightgreen)
 
 | | |
 |---|---|
@@ -10,7 +10,7 @@
 | Exposes | 32 tools · 2 prompts · 0 resources |
 | Context cost | ≈4,933 tokens per request |
 | Score | **90/100 (A)** |
-| Scanned | 2026-11-01T11:26:53.784Z with mcp-guard 0.1.0 |
+| Scanned | 2026-11-01T11:33:45.679Z with mcp-keeper 0.1.0 |
 
 ## Scores
 

@@ -1,6 +1,6 @@
-# mcp-guard report: secure-filesystem-server
+# mcp-keeper report: secure-filesystem-server
 
-![mcp-guard](https://img.shields.io/badge/mcp--guard-A%20%C2%B7%2092-brightgreen)
+![mcp-keeper](https://img.shields.io/badge/mcp--keeper-A%20%C2%B7%2092-brightgreen)
 
 | | |
 |---|---|
@@ -10,7 +10,7 @@
 | Exposes | 14 tools · 0 prompts · 0 resources |
 | Context cost | ≈2,024 tokens per request |
 | Score | **92/100 (A)** |
-| Scanned | 2026-11-01T11:26:53.817Z with mcp-guard 0.1.0 |
+| Scanned | 2026-11-01T11:33:45.718Z with mcp-keeper 0.1.0 |
 
 ## Scores
 

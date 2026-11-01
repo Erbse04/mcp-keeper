@@ -1,5 +1,5 @@
 {
-  "name": "@erbse04/mcp-guard",
+  "name": "mcp-keeper",
   "version": "0.1.0",
   "description": "Security, token-cost and quality checks for MCP (Model Context Protocol) servers and client configs.",
   "main": "dist/index.js",
@@ -33,7 +33,7 @@
   },
   "type": "module",
   "bin": {
-    "mcp-guard": "dist/cli.js"
+    "mcp-keeper": "dist/cli.js"
   },
   "types": "dist/index.d.ts",
   "files": [
@@ -48,13 +48,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Erbse04/mcp-guard.git"
+    "url": "git+https://github.com/Erbse04/mcp-keeper.git"
   },
   "publishConfig": {
     "access": "public"
   },
-  "homepage": "https://github.com/Erbse04/mcp-guard#readme",
+  "homepage": "https://github.com/Erbse04/mcp-keeper#readme",
   "bugs": {
-    "url": "https://github.com/Erbse04/mcp-guard/issues"
+    "url": "https://github.com/Erbse04/mcp-keeper/issues"
   }
 }

@@ -1,6 +1,6 @@
-# mcp-guard report: firecrawl-fastmcp
+# mcp-keeper report: firecrawl-fastmcp
 
-![mcp-guard](https://img.shields.io/badge/mcp--guard-C%20%C2%B7%2078-yellow)
+![mcp-keeper](https://img.shields.io/badge/mcp--keeper-C%20%C2%B7%2078-yellow)
 
 | | |
 |---|---|
@@ -10,7 +10,7 @@
 | Exposes | 28 tools · 0 prompts · 0 resources |
 | Context cost | ≈15,789 tokens per request |
 | Score | **78/100 (C)** |
-| Scanned | 2026-11-01T11:26:53.824Z with mcp-guard 0.1.0 |
+| Scanned | 2026-11-01T11:33:45.726Z with mcp-keeper 0.1.0 |
 
 ## Scores
 

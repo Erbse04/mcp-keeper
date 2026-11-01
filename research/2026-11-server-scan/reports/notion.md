@@ -1,6 +1,6 @@
-# mcp-guard report: Notion API
+# mcp-keeper report: Notion API
 
-![mcp-guard](https://img.shields.io/badge/mcp--guard-B%20%C2%B7%2082-green)
+![mcp-keeper](https://img.shields.io/badge/mcp--keeper-B%20%C2%B7%2082-green)
 
 | | |
 |---|---|
@@ -10,7 +10,7 @@
 | Exposes | 24 tools · 0 prompts · 0 resources |
 | Context cost | ≈18,676 tokens per request |
 | Score | **82/100 (B)** |
-| Scanned | 2026-11-01T11:26:53.877Z with mcp-guard 0.1.0 |
+| Scanned | 2026-11-01T11:33:45.780Z with mcp-keeper 0.1.0 |
 
 ## Scores
 

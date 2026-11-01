@@ -1,9 +1,9 @@
 {
   "tool": {
-    "name": "mcp-guard",
+    "name": "mcp-keeper",
     "version": "0.1.0"
   },
-  "scannedAt": "2026-11-01T11:26:53.883Z",
+  "scannedAt": "2026-11-01T11:33:45.785Z",
   "snapshot": {
     "target": "npx -y @paypal/mcp@1.8.1 --tools=all",
     "transport": "stdio",

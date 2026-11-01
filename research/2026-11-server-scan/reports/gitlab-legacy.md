@@ -1,6 +1,6 @@
-# mcp-guard report: gitlab-mcp-server
+# mcp-keeper report: gitlab-mcp-server
 
-![mcp-guard](https://img.shields.io/badge/mcp--guard-D%20%C2%B7%2059-orange)
+![mcp-keeper](https://img.shields.io/badge/mcp--keeper-D%20%C2%B7%2059-orange)
 
 | | |
 |---|---|
@@ -10,7 +10,7 @@
 | Exposes | 9 tools · 0 prompts · 0 resources |
 | Context cost | ≈359 tokens per request |
 | Score | **59/100 (D)** |
-| Scanned | 2026-11-01T11:26:53.829Z with mcp-guard 0.1.0 |
+| Scanned | 2026-11-01T11:33:45.731Z with mcp-keeper 0.1.0 |
 
 ## Scores
 

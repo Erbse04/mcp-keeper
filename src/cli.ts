@@ -49,7 +49,7 @@ function render(r: ScanResult, format: string, verbose: boolean, sarifArtifact: 
 
 const program = new Command();
 program
-  .name("mcp-guard")
+  .name("mcp-keeper")
   .description("Security, token-cost and quality checks for MCP servers and client configs.")
   .version(VERSION);
 
@@ -97,7 +97,7 @@ program
         });
       }
     } catch (e) {
-      process.stderr.write(`mcp-guard: could not connect: ${(e as Error).message}\n`);
+      process.stderr.write(`mcp-keeper: could not connect: ${(e as Error).message}\n`);
       process.exit(2);
     }
     if (o.saveSnapshot) writeFileSync(o.saveSnapshot, JSON.stringify(snapshot, null, 2) + "\n");
@@ -105,11 +105,11 @@ program
     if (o.baseline && !o.updateBaseline) {
       const b = loadBaseline(o.baseline);
       if (b) extra.push(...compareBaseline(b, snapshot));
-      else process.stderr.write(`mcp-guard: baseline ${o.baseline} not found — run with --update-baseline to create it.\n`);
+      else process.stderr.write(`mcp-keeper: baseline ${o.baseline} not found — run with --update-baseline to create it.\n`);
     }
     if (o.baseline && o.updateBaseline) {
       saveBaseline(o.baseline, snapshot);
-      process.stderr.write(`mcp-guard: baseline written to ${o.baseline}\n`);
+      process.stderr.write(`mcp-keeper: baseline written to ${o.baseline}\n`);
     }
     const result = analyze(snapshot, { disable: o.disable, extraFindings: extra });
     emit(o.output, render(result, o.format, !!o.verbose, o.sarifArtifact));
@@ -139,14 +139,14 @@ program
           servers.push(...readConfigFile(f));
           scanned.push(f);
         } catch (e) {
-          process.stderr.write(`mcp-guard: cannot read ${f}: ${(e as Error).message}\n`);
+          process.stderr.write(`mcp-keeper: cannot read ${f}: ${(e as Error).message}\n`);
         }
       }
     } else {
       const d = discoverServers();
       servers = d.servers;
       scanned = d.files.map((f) => f.path);
-      for (const e of d.errors) process.stderr.write(`mcp-guard: cannot read ${e.file}: ${e.message}\n`);
+      for (const e of d.errors) process.stderr.write(`mcp-keeper: cannot read ${e.file}: ${e.message}\n`);
     }
     const findings = new Map<ConfiguredServer, Finding[]>();
     const deep: { server: string; result?: ScanResult; error?: string }[] = [];
@@ -189,6 +189,6 @@ program
   });
 
 program.parseAsync().catch((e) => {
-  process.stderr.write(`mcp-guard: ${(e as Error).message}\n`);
+  process.stderr.write(`mcp-keeper: ${(e as Error).message}\n`);
   process.exit(2);
 });

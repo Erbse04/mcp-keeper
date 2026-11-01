@@ -1,4 +1,4 @@
-// Runs mcp-guard against every server in servers.json with limited concurrency.
+// Runs mcp-keeper against every server in servers.json with limited concurrency.
 import { readFileSync, writeFileSync } from "node:fs";
 import { spawn } from "node:child_process";
 const servers = JSON.parse(readFileSync(new URL("./servers.json", import.meta.url)));

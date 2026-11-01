@@ -1,6 +1,6 @@
-# mcp-guard report: elasticsearch-mcp
+# mcp-keeper report: elasticsearch-mcp
 
-![mcp-guard](https://img.shields.io/badge/mcp--guard-A%20%C2%B7%2098-brightgreen)
+![mcp-keeper](https://img.shields.io/badge/mcp--keeper-A%20%C2%B7%2098-brightgreen)
 
 | | |
 |---|---|
@@ -10,7 +10,7 @@
 | Exposes | 4 tools · 0 prompts · 0 resources |
 | Context cost | ≈446 tokens per request |
 | Score | **98/100 (A)** |
-| Scanned | 2026-11-01T11:26:53.810Z with mcp-guard 0.1.0 |
+| Scanned | 2026-11-01T11:33:45.711Z with mcp-keeper 0.1.0 |
 
 ## Scores
 
