@@ -1,0 +1,295 @@
+{
+  "tool": {
+    "name": "mcp-probe",
+    "version": "0.1.0"
+  },
+  "scannedAt": "2026-11-01T11:13:32.213Z",
+  "snapshot": {
+    "target": "npx -y @modelcontextprotocol/server-slack@2025.4.25",
+    "transport": "stdio",
+    "serverInfo": {
+      "name": "Slack MCP Server",
+      "version": "1.0.0"
+    },
+    "protocolVersion": "2024-11-05",
+    "capabilities": {
+      "tools": {}
+    },
+    "tools": [
+      {
+        "name": "slack_list_channels",
+        "description": "List public or pre-defined channels in the workspace with pagination",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "limit": {
+              "type": "number",
+              "description": "Maximum number of channels to return (default 100, max 200)",
+              "default": 100
+            },
+            "cursor": {
+              "type": "string",
+              "description": "Pagination cursor for next page of results"
+            }
+          }
+        }
+      },
+      {
+        "name": "slack_post_message",
+        "description": "Post a new message to a Slack channel",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "channel_id": {
+              "type": "string",
+              "description": "The ID of the channel to post to"
+            },
+            "text": {
+              "type": "string",
+              "description": "The message text to post"
+            }
+          },
+          "required": [
+            "channel_id",
+            "text"
+          ]
+        }
+      },
+      {
+        "name": "slack_reply_to_thread",
+        "description": "Reply to a specific message thread in Slack",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "channel_id": {
+              "type": "string",
+              "description": "The ID of the channel containing the thread"
+            },
+            "thread_ts": {
+              "type": "string",
+              "description": "The timestamp of the parent message in the format '1234567890.123456'. Timestamps in the format without the period can be converted by adding the period such that 6 numbers come after it."
+            },
+            "text": {
+              "type": "string",
+              "description": "The reply text"
+            }
+          },
+          "required": [
+            "channel_id",
+            "thread_ts",
+            "text"
+          ]
+        }
+      },
+      {
+        "name": "slack_add_reaction",
+        "description": "Add a reaction emoji to a message",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "channel_id": {
+              "type": "string",
+              "description": "The ID of the channel containing the message"
+            },
+            "timestamp": {
+              "type": "string",
+              "description": "The timestamp of the message to react to"
+            },
+            "reaction": {
+              "type": "string",
+              "description": "The name of the emoji reaction (without ::)"
+            }
+          },
+          "required": [
+            "channel_id",
+            "timestamp",
+            "reaction"
+          ]
+        }
+      },
+      {
+        "name": "slack_get_channel_history",
+        "description": "Get recent messages from a channel",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "channel_id": {
+              "type": "string",
+              "description": "The ID of the channel"
+            },
+            "limit": {
+              "type": "number",
+              "description": "Number of messages to retrieve (default 10)",
+              "default": 10
+            }
+          },
+          "required": [
+            "channel_id"
+          ]
+        }
+      },
+      {
+        "name": "slack_get_thread_replies",
+        "description": "Get all replies in a message thread",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "channel_id": {
+              "type": "string",
+              "description": "The ID of the channel containing the thread"
+            },
+            "thread_ts": {
+              "type": "string",
+              "description": "The timestamp of the parent message in the format '1234567890.123456'. Timestamps in the format without the period can be converted by adding the period such that 6 numbers come after it."
+            }
+          },
+          "required": [
+            "channel_id",
+            "thread_ts"
+          ]
+        }
+      },
+      {
+        "name": "slack_get_users",
+        "description": "Get a list of all users in the workspace with their basic profile information",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "cursor": {
+              "type": "string",
+              "description": "Pagination cursor for next page of results"
+            },
+            "limit": {
+              "type": "number",
+              "description": "Maximum number of users to return (default 100, max 200)",
+              "default": 100
+            }
+          }
+        }
+      },
+      {
+        "name": "slack_get_user_profile",
+        "description": "Get detailed profile information for a specific user",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "user_id": {
+              "type": "string",
+              "description": "The ID of the user"
+            }
+          },
+          "required": [
+            "user_id"
+          ]
+        }
+      }
+    ],
+    "prompts": [],
+    "resources": [],
+    "resourceTemplates": [],
+    "timings": {
+      "connectMs": 4450,
+      "listMs": 18
+    },
+    "errors": [],
+    "schemaErrors": []
+  },
+  "findings": [
+    {
+      "ruleId": "MCP302",
+      "severity": "low",
+      "message": "Server negotiated protocol 2024-11-05; latest supported by this checker is 2025-11-25.",
+      "fix": "Update your MCP SDK."
+    },
+    {
+      "ruleId": "MCP004",
+      "severity": "info",
+      "message": "Tool \"slack_list_channels\" has no readOnlyHint. If it only reads, mark it so clients can run it without confirmation.",
+      "location": "tool:slack_list_channels › annotations"
+    },
+    {
+      "ruleId": "MCP004",
+      "severity": "info",
+      "message": "Tool \"slack_get_channel_history\" has no readOnlyHint. If it only reads, mark it so clients can run it without confirmation.",
+      "location": "tool:slack_get_channel_history › annotations"
+    },
+    {
+      "ruleId": "MCP004",
+      "severity": "info",
+      "message": "Tool \"slack_get_thread_replies\" has no readOnlyHint. If it only reads, mark it so clients can run it without confirmation.",
+      "location": "tool:slack_get_thread_replies › annotations"
+    },
+    {
+      "ruleId": "MCP004",
+      "severity": "info",
+      "message": "Tool \"slack_get_users\" has no readOnlyHint. If it only reads, mark it so clients can run it without confirmation.",
+      "location": "tool:slack_get_users › annotations"
+    },
+    {
+      "ruleId": "MCP004",
+      "severity": "info",
+      "message": "Tool \"slack_get_user_profile\" has no readOnlyHint. If it only reads, mark it so clients can run it without confirmation.",
+      "location": "tool:slack_get_user_profile › annotations"
+    }
+  ],
+  "score": 98,
+  "grade": "A",
+  "categories": {
+    "security": {
+      "score": 100,
+      "findings": 0
+    },
+    "efficiency": {
+      "score": 100,
+      "findings": 0
+    },
+    "quality": {
+      "score": 100,
+      "findings": 0
+    },
+    "compliance": {
+      "score": 98,
+      "findings": 1
+    }
+  },
+  "stats": {
+    "tools": 8,
+    "prompts": 0,
+    "resources": 0,
+    "estimatedTokens": 782,
+    "perTool": [
+      {
+        "name": "slack_reply_to_thread",
+        "tokens": 142
+      },
+      {
+        "name": "slack_get_thread_replies",
+        "tokens": 125
+      },
+      {
+        "name": "slack_add_reaction",
+        "tokens": 111
+      },
+      {
+        "name": "slack_list_channels",
+        "tokens": 92
+      },
+      {
+        "name": "slack_get_users",
+        "tokens": 92
+      },
+      {
+        "name": "slack_get_channel_history",
+        "tokens": 83
+      },
+      {
+        "name": "slack_post_message",
+        "tokens": 78
+      },
+      {
+        "name": "slack_get_user_profile",
+        "tokens": 59
+      }
+    ]
+  }
+}

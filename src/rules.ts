@@ -21,6 +21,8 @@ interface InjectionPattern {
   re: RegExp;
   severity: Severity;
   why: string;
+  /** Only a finding if the text is about a tool that is NOT part of this server. */
+  foreignToolOnly?: boolean;
 }
 
 const INJECTION_PATTERNS: InjectionPattern[] = [
@@ -57,17 +59,19 @@ const INJECTION_PATTERNS: InjectionPattern[] = [
   {
     re: /\b(?:when|whenever|if)\b[^.\n]{0,30}\b(?:the )?(?:user|you|assistant)\b[^.\n]{0,20}\b(?:calls?|uses?|invokes?|runs?)\b[^.\n]{0,30}\b(?:other|another|any|the [`'"]?[\w.-]+[`'"]?) tool\b/i,
     severity: "medium",
-    why: "tries to change how *other* tools are used (tool shadowing)",
+    why: "tries to change how other servers' tools are used (tool shadowing)",
+    foreignToolOnly: true,
   },
   {
     re: /\b(?:instead of|rather than)\b[^.\n]{0,15}\b(?:using|calling)\b[^.\n]{0,30}\btool\b/i,
     severity: "medium",
-    why: "tries to redirect the model away from other tools",
+    why: "tries to redirect the model away from other servers' tools",
+    foreignToolOnly: true,
   },
   {
-    re: /\b(?:conversation|chat) history\b|\bsystem prompt\b|\bprevious messages\b|\bentire (?:conversation|context)\b/i,
+    re: /\b(?:include|send|pass|attach|copy|append|share|forward|upload|reveal|output|print|repeat|dump|leak)\b[^.\n]{0,30}\b(?:(?:full|entire|whole|complete) )?(?:(?:conversation|chat) history|system prompt|previous messages|(?:entire|full|whole) (?:conversation|context))\b/i,
     severity: "medium",
-    why: "references the model's conversation or system prompt",
+    why: "asks to pass along the conversation or system prompt",
   },
   {
     re: /\b(?:you are now|from now on|new instructions?|act as (?:an?|the)|pretend (?:to be|you are))\b/i,
@@ -76,8 +80,8 @@ const INJECTION_PATTERNS: InjectionPattern[] = [
   },
   {
     re: /\b(?:this is (?:very |extremely )?important|very important|critical(?:ly important)?)\b[^.\n]{0,20}[!:]/i,
-    severity: "low",
-    why: "uses urgency phrasing often used to push the model",
+    severity: "info",
+    why: "uses urgency phrasing (common in poisoning, but also in legitimate docs)",
   },
 ];
 
@@ -89,11 +93,17 @@ const promptInjection: Rule = {
     "Tool, prompt and resource descriptions, parameter descriptions and server instructions are read by the model as trusted text. Phrases that override instructions, hide actions from the user or reference credential files are classic tool-poisoning patterns.",
   check({ snapshot }) {
     const out: Finding[] = [];
+    const own = snapshot.tools.map((t) => String(t.name).toLowerCase()).filter((n) => n.length > 2);
     for (const f of textFields(snapshot)) {
       if (f.path === "name") continue;
       for (const p of INJECTION_PATTERNS) {
         const m = p.re.exec(f.text);
         if (!m) continue;
+        if (p.foreignToolOnly) {
+          const around = f.text.slice(m.index, m.index + m[0].length + 40).toLowerCase();
+          // Guidance about the server's own tools ("use X instead of calling this tool") is fine.
+          if (/\b(?:this|these|our|the same) tools?\b/.test(around) || own.some((n) => around.includes(n))) continue;
+        }
         out.push({
           ruleId: this.id,
           severity: p.severity,
@@ -256,8 +266,15 @@ const powerfulTools: Rule = {
   check({ snapshot }) {
     const out: Finding[] = [];
     for (const t of snapshot.tools) {
-      const props = Object.keys((t.inputSchema as { properties?: Record<string, unknown> } | undefined)?.properties ?? {});
-      const hasCodeParam = props.some((p) => /^(command|cmd|code|script|shell|expression)$/i.test(p));
+      const propDefs = ((t.inputSchema as { properties?: Record<string, { description?: string }> } | undefined)?.properties ?? {}) as Record<string, { description?: string }>;
+      const props = Object.keys(propDefs);
+      // A `command`/`code` parameter only counts when its description talks about shells or running code
+      // (many servers use `command` for sub-commands of an API).
+      const hasCodeParam = props.some(
+        (p) =>
+          /^(command|cmd|code|script|shell|expression|js|javascript|python)$/i.test(p) &&
+          /\b(shell|terminal|bash|zsh|powershell|cmd\.exe|javascript|python|eval(?:uate)?d?|(?:run|execute)[sd]?\s+(?:the\s+|this\s+|a\s+|arbitrary\s+)?(?:code|script|snippet))\b/i.test(`${propDefs[p]?.description ?? ""} ${(t.description ?? "").slice(0, 400)}`),
+      );
       if (isExec(t.name) || hasCodeParam) {
         out.push({
           ruleId: this.id,
@@ -355,7 +372,13 @@ const descriptions: Rule = {
         out.push({ ruleId: this.id, severity: "low", message: `Tool "${t.name}" has a ${d.length}-character description.`, location: `tool:${t.name}`, fix: "Keep descriptions focused; move reference material into a resource." });
       }
       const props = (t.inputSchema as { properties?: Record<string, { description?: string }> } | undefined)?.properties ?? {};
-      const missing = Object.entries(props).filter(([, v]) => !v || typeof v !== "object" || !v.description?.trim()).map(([k]) => k);
+      const described = (v: unknown): boolean => {
+        if (!v || typeof v !== "object") return false;
+        const o = v as { description?: string; title?: string; properties?: object; $ref?: string; items?: { properties?: object } };
+        // Nested objects are documented through their own properties.
+        return !!(o.description?.trim() || o.title?.trim() || o.$ref || (o.properties && Object.keys(o.properties).length) || o.items?.properties);
+      };
+      const missing = Object.entries(props).filter(([, v]) => !described(v)).map(([k]) => k);
       const selfExplanatory = new Set(["id", "path", "url", "query", "name", "limit", "offset", "page", "cursor"]);
       const relevant = missing.filter((m) => !selfExplanatory.has(m.toLowerCase()));
       if (relevant.length > 0) {
@@ -382,6 +405,8 @@ const schemaValidity: Rule = {
     for (const t of snapshot.tools) {
       const s = t.inputSchema as { type?: unknown; properties?: Record<string, unknown>; required?: unknown };
       const where = loc(`tool:${t.name}`, "inputSchema");
+      const reportedBySchemaCheck = (snapshot.schemaErrors ?? []).some((e) => e.kind === "tools" && e.name === t.name && e.message.startsWith("inputSchema"));
+      if (reportedBySchemaCheck) continue;
       if (!s || s.type !== "object") {
         out.push({ ruleId: this.id, severity: "high", message: `Tool "${t.name}": inputSchema.type must be "object".`, location: where });
         continue;
@@ -465,10 +490,17 @@ const protocol: Rule = {
         severity: "high",
         message: `${e.kind.replace(/s$/, "")} "${e.name}" does not match the MCP schema (${e.message}). The official TypeScript SDK client rejects the whole list because of it.`,
         location: `${e.kind.replace(/s$/, "")}:${e.name}`,
+        blocking: true,
       });
     }
     for (const e of snapshot.errors) {
-      out.push({ ruleId: this.id, severity: "medium", message: `${e.stage} failed: ${e.message}` });
+      if (/-32601/.test(e.message)) {
+        // Templates are optional for many servers; other list methods should exist if the capability is declared.
+        if (e.stage === "resources/templates/list") continue;
+        out.push({ ruleId: this.id, severity: "low", message: `Server declares the capability but ${e.stage} is not implemented (${e.message}).`, fix: "Only declare capabilities you implement." });
+      } else {
+        out.push({ ruleId: this.id, severity: "low", message: `${e.stage} failed: ${e.message} (the server may need credentials or a reachable backend to list this).` });
+      }
     }
     if (snapshot.tools.length + snapshot.prompts.length + snapshot.resources.length + snapshot.resourceTemplates.length === 0 && snapshot.errors.length === 0) {
       out.push({ ruleId: this.id, severity: "info", message: "Server exposes no tools, prompts or resources (it may need configuration or credentials)." });

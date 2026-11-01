@@ -39,6 +39,8 @@ export interface Finding {
   evidence?: string;
   /** Suggested fix. */
   fix?: string;
+  /** The server is unusable in standard clients because of this (caps the score at 59). */
+  blocking?: boolean;
 }
 
 export interface RuleContext {

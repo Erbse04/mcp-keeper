@@ -1,0 +1,45 @@
+{
+  "target": "npx -y @modelcontextprotocol/server-postgres@0.6.2 postgresql://localhost/none",
+  "transport": "stdio",
+  "serverInfo": {
+    "name": "example-servers/postgres",
+    "version": "0.1.0"
+  },
+  "protocolVersion": "2024-11-05",
+  "capabilities": {
+    "resources": {},
+    "tools": {}
+  },
+  "tools": [
+    {
+      "name": "query",
+      "description": "Run a read-only SQL query",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "sql": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  ],
+  "prompts": [],
+  "resources": [],
+  "resourceTemplates": [],
+  "timings": {
+    "connectMs": 5730,
+    "listMs": 59
+  },
+  "errors": [
+    {
+      "stage": "resources/list",
+      "message": "MCP error -32603: connect ECONNREFUSED 127.0.0.1:5432"
+    },
+    {
+      "stage": "resources/templates/list",
+      "message": "MCP error -32601: Method not found"
+    }
+  ],
+  "schemaErrors": []
+}

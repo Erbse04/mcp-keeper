@@ -1,0 +1,215 @@
+{
+  "tool": {
+    "name": "mcp-probe",
+    "version": "0.1.0"
+  },
+  "scannedAt": "2026-11-01T11:13:32.215Z",
+  "snapshot": {
+    "target": "uvx mcp-server-time",
+    "transport": "stdio",
+    "serverInfo": {
+      "name": "mcp-time",
+      "version": "2026.10.28"
+    },
+    "protocolVersion": "2025-11-25",
+    "capabilities": {
+      "prompts": {
+        "listChanged": false
+      },
+      "resources": {
+        "subscribe": false,
+        "listChanged": false
+      },
+      "tools": {
+        "listChanged": false
+      }
+    },
+    "tools": [
+      {
+        "annotations": {
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false,
+          "readOnlyHint": true
+        },
+        "description": "Get current time in a specific timezone",
+        "inputSchema": {
+          "properties": {
+            "timezone": {
+              "description": "IANA timezone name (e.g., 'America/New_York', 'Europe/London'). Use 'Etc/UTC' as local timezone if no timezone provided by the user.",
+              "title": "Timezone",
+              "type": "string"
+            }
+          },
+          "required": [
+            "timezone"
+          ],
+          "type": "object",
+          "title": "get_current_timeArguments"
+        },
+        "name": "get_current_time",
+        "outputSchema": {
+          "properties": {
+            "timezone": {
+              "title": "Timezone",
+              "type": "string"
+            },
+            "datetime": {
+              "title": "Datetime",
+              "type": "string"
+            },
+            "day_of_week": {
+              "title": "Day Of Week",
+              "type": "string"
+            },
+            "is_dst": {
+              "title": "Is Dst",
+              "type": "boolean"
+            }
+          },
+          "required": [
+            "timezone",
+            "datetime",
+            "day_of_week",
+            "is_dst"
+          ],
+          "type": "object",
+          "title": "TimeResult"
+        }
+      },
+      {
+        "annotations": {
+          "destructiveHint": false,
+          "idempotentHint": true,
+          "openWorldHint": false,
+          "readOnlyHint": true
+        },
+        "description": "Convert time between timezones",
+        "inputSchema": {
+          "properties": {
+            "source_timezone": {
+              "description": "Source IANA timezone name (e.g., 'America/New_York', 'Europe/London'). Use 'Etc/UTC' as local timezone if no source timezone provided by the user.",
+              "title": "Source Timezone",
+              "type": "string"
+            },
+            "time": {
+              "description": "Time to convert in 24-hour format (HH:MM)",
+              "title": "Time",
+              "type": "string"
+            },
+            "target_timezone": {
+              "description": "Target IANA timezone name (e.g., 'Asia/Tokyo', 'America/San_Francisco'). Use 'Etc/UTC' as local timezone if no target timezone provided by the user.",
+              "title": "Target Timezone",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source_timezone",
+            "time",
+            "target_timezone"
+          ],
+          "type": "object",
+          "title": "convert_timeArguments"
+        },
+        "name": "convert_time",
+        "outputSchema": {
+          "properties": {
+            "source": {
+              "$ref": "#/$defs/TimeResult"
+            },
+            "target": {
+              "$ref": "#/$defs/TimeResult"
+            },
+            "time_difference": {
+              "title": "Time Difference",
+              "type": "string"
+            }
+          },
+          "required": [
+            "source",
+            "target",
+            "time_difference"
+          ],
+          "type": "object",
+          "$defs": {
+            "TimeResult": {
+              "properties": {
+                "timezone": {
+                  "title": "Timezone",
+                  "type": "string"
+                },
+                "datetime": {
+                  "title": "Datetime",
+                  "type": "string"
+                },
+                "day_of_week": {
+                  "title": "Day Of Week",
+                  "type": "string"
+                },
+                "is_dst": {
+                  "title": "Is Dst",
+                  "type": "boolean"
+                }
+              },
+              "required": [
+                "timezone",
+                "datetime",
+                "day_of_week",
+                "is_dst"
+              ],
+              "title": "TimeResult",
+              "type": "object"
+            }
+          },
+          "title": "TimeConversionResult"
+        }
+      }
+    ],
+    "prompts": [],
+    "resources": [],
+    "resourceTemplates": [],
+    "timings": {
+      "connectMs": 11881,
+      "listMs": 10
+    },
+    "errors": [],
+    "schemaErrors": []
+  },
+  "findings": [],
+  "score": 100,
+  "grade": "A",
+  "categories": {
+    "security": {
+      "score": 100,
+      "findings": 0
+    },
+    "efficiency": {
+      "score": 100,
+      "findings": 0
+    },
+    "quality": {
+      "score": 100,
+      "findings": 0
+    },
+    "compliance": {
+      "score": 100,
+      "findings": 0
+    }
+  },
+  "stats": {
+    "tools": 2,
+    "prompts": 0,
+    "resources": 0,
+    "estimatedTokens": 286,
+    "perTool": [
+      {
+        "name": "convert_time",
+        "tokens": 189
+      },
+      {
+        "name": "get_current_time",
+        "tokens": 97
+      }
+    ]
+  }
+}

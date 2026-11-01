@@ -119,7 +119,7 @@ or commit `badge.json` from `--badge` and use `https://img.shields.io/endpoint?u
 
 ## Scoring
 
-Each finding deducts points by severity — critical 40, high 15, medium 6, low 2, info 0 — with at most 30 points per rule (except critical). Any critical finding caps the score at 40 (F).
+Each finding deducts points by severity — critical 40, high 15, medium 6, low 2, info 0. Per rule, low findings count for at most 10 points and all non-critical findings for at most 30, so many small style issues cannot outweigh one real problem. Any critical finding caps the score at 40 (F); tools that the official SDK rejects (which breaks the whole server in many clients) cap it at 59 (D).
 Grades: **A** ≥ 90 · **B** ≥ 80 · **C** ≥ 65 · **D** ≥ 50 · **F** below.
 There are separate scores for *security*, *efficiency*, *quality* and *compliance*.
 

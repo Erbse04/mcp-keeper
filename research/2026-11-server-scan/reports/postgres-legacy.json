@@ -1,0 +1,110 @@
+{
+  "tool": {
+    "name": "mcp-probe",
+    "version": "0.1.0"
+  },
+  "scannedAt": "2026-11-01T11:13:32.206Z",
+  "snapshot": {
+    "target": "npx -y @modelcontextprotocol/server-postgres@0.6.2 postgresql://localhost/none",
+    "transport": "stdio",
+    "serverInfo": {
+      "name": "example-servers/postgres",
+      "version": "0.1.0"
+    },
+    "protocolVersion": "2024-11-05",
+    "capabilities": {
+      "resources": {},
+      "tools": {}
+    },
+    "tools": [
+      {
+        "name": "query",
+        "description": "Run a read-only SQL query",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "sql": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    ],
+    "prompts": [],
+    "resources": [],
+    "resourceTemplates": [],
+    "timings": {
+      "connectMs": 5730,
+      "listMs": 59
+    },
+    "errors": [
+      {
+        "stage": "resources/list",
+        "message": "MCP error -32603: connect ECONNREFUSED 127.0.0.1:5432"
+      },
+      {
+        "stage": "resources/templates/list",
+        "message": "MCP error -32601: Method not found"
+      }
+    ],
+    "schemaErrors": []
+  },
+  "findings": [
+    {
+      "ruleId": "MCP201",
+      "severity": "low",
+      "message": "Tool \"query\": 1 parameter(s) without description (sql).",
+      "location": "tool:query › inputSchema.properties",
+      "fix": "Describe format, units and allowed values for each parameter."
+    },
+    {
+      "ruleId": "MCP302",
+      "severity": "low",
+      "message": "Server negotiated protocol 2024-11-05; latest supported by this checker is 2025-11-25.",
+      "fix": "Update your MCP SDK."
+    },
+    {
+      "ruleId": "MCP302",
+      "severity": "low",
+      "message": "resources/list failed: MCP error -32603: connect ECONNREFUSED 127.0.0.1:5432 (the server may need credentials or a reachable backend to list this)."
+    },
+    {
+      "ruleId": "MCP004",
+      "severity": "info",
+      "message": "Tool \"query\" has no readOnlyHint. If it only reads, mark it so clients can run it without confirmation.",
+      "location": "tool:query › annotations"
+    }
+  ],
+  "score": 94,
+  "grade": "A",
+  "categories": {
+    "security": {
+      "score": 100,
+      "findings": 0
+    },
+    "efficiency": {
+      "score": 100,
+      "findings": 0
+    },
+    "quality": {
+      "score": 98,
+      "findings": 1
+    },
+    "compliance": {
+      "score": 96,
+      "findings": 2
+    }
+  },
+  "stats": {
+    "tools": 1,
+    "prompts": 0,
+    "resources": 0,
+    "estimatedTokens": 33,
+    "perTool": [
+      {
+        "name": "query",
+        "tokens": 33
+      }
+    ]
+  }
+}

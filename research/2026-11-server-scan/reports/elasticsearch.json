@@ -1,0 +1,196 @@
+{
+  "tool": {
+    "name": "mcp-probe",
+    "version": "0.1.0"
+  },
+  "scannedAt": "2026-11-01T11:13:32.123Z",
+  "snapshot": {
+    "target": "npx -y @elastic/mcp-server-elasticsearch@0.3.1",
+    "transport": "stdio",
+    "serverInfo": {
+      "name": "elasticsearch-mcp",
+      "version": "0.3.1"
+    },
+    "protocolVersion": "2025-06-18",
+    "capabilities": {
+      "tools": {
+        "listChanged": true
+      }
+    },
+    "tools": [
+      {
+        "name": "list_indices",
+        "description": "List all available Elasticsearch indices",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "indexPattern": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Index pattern of Elasticsearch indices to list"
+            }
+          },
+          "required": [
+            "indexPattern"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "get_mappings",
+        "description": "Get field mappings for a specific Elasticsearch index",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Name of the Elasticsearch index to get mappings for"
+            }
+          },
+          "required": [
+            "index"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "search",
+        "description": "Perform an Elasticsearch search with the provided query DSL. Highlights are always enabled.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "string",
+              "minLength": 1,
+              "description": "Name of the Elasticsearch index to search"
+            },
+            "queryBody": {
+              "type": "object",
+              "additionalProperties": {},
+              "description": "Complete Elasticsearch query DSL object that can include query, size, from, sort, etc."
+            },
+            "profile": {
+              "type": "boolean",
+              "default": false,
+              "description": "Whether to include query profiling information"
+            },
+            "explain": {
+              "type": "boolean",
+              "default": false,
+              "description": "Whether to include explanation of how the query was executed"
+            }
+          },
+          "required": [
+            "index",
+            "queryBody"
+          ],
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "get_shards",
+        "description": "Get shard information for all or specific indices",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "index": {
+              "type": "string",
+              "description": "Optional index name to get shard information for"
+            }
+          },
+          "additionalProperties": false,
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      }
+    ],
+    "prompts": [],
+    "resources": [],
+    "resourceTemplates": [],
+    "timings": {
+      "connectMs": 27773,
+      "listMs": 28
+    },
+    "errors": [],
+    "schemaErrors": []
+  },
+  "findings": [
+    {
+      "ruleId": "MCP302",
+      "severity": "low",
+      "message": "Server negotiated protocol 2025-06-18; latest supported by this checker is 2025-11-25.",
+      "fix": "Update your MCP SDK."
+    },
+    {
+      "ruleId": "MCP004",
+      "severity": "info",
+      "message": "Tool \"list_indices\" has no readOnlyHint. If it only reads, mark it so clients can run it without confirmation.",
+      "location": "tool:list_indices › annotations"
+    },
+    {
+      "ruleId": "MCP004",
+      "severity": "info",
+      "message": "Tool \"get_mappings\" has no readOnlyHint. If it only reads, mark it so clients can run it without confirmation.",
+      "location": "tool:get_mappings › annotations"
+    },
+    {
+      "ruleId": "MCP004",
+      "severity": "info",
+      "message": "Tool \"search\" has no readOnlyHint. If it only reads, mark it so clients can run it without confirmation.",
+      "location": "tool:search › annotations"
+    },
+    {
+      "ruleId": "MCP004",
+      "severity": "info",
+      "message": "Tool \"get_shards\" has no readOnlyHint. If it only reads, mark it so clients can run it without confirmation.",
+      "location": "tool:get_shards › annotations"
+    }
+  ],
+  "score": 98,
+  "grade": "A",
+  "categories": {
+    "security": {
+      "score": 100,
+      "findings": 0
+    },
+    "efficiency": {
+      "score": 100,
+      "findings": 0
+    },
+    "quality": {
+      "score": 100,
+      "findings": 0
+    },
+    "compliance": {
+      "score": 98,
+      "findings": 1
+    }
+  },
+  "stats": {
+    "tools": 4,
+    "prompts": 0,
+    "resources": 0,
+    "estimatedTokens": 446,
+    "perTool": [
+      {
+        "name": "search",
+        "tokens": 194
+      },
+      {
+        "name": "get_mappings",
+        "tokens": 88
+      },
+      {
+        "name": "list_indices",
+        "tokens": 87
+      },
+      {
+        "name": "get_shards",
+        "tokens": 77
+      }
+    ]
+  }
+}

@@ -1,0 +1,286 @@
+{
+  "tool": {
+    "name": "mcp-probe",
+    "version": "0.1.0"
+  },
+  "scannedAt": "2026-11-01T11:13:32.144Z",
+  "snapshot": {
+    "target": "npx -y @modelcontextprotocol/server-gitlab@2025.4.25",
+    "transport": "stdio",
+    "serverInfo": {
+      "name": "gitlab-mcp-server",
+      "version": "0.5.1"
+    },
+    "protocolVersion": "2024-11-05",
+    "capabilities": {
+      "tools": {}
+    },
+    "tools": [
+      {
+        "name": "create_or_update_file",
+        "description": "Create or update a single file in a GitLab project",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "search_repositories",
+        "description": "Search for GitLab projects",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "create_repository",
+        "description": "Create a new GitLab project",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "get_file_contents",
+        "description": "Get the contents of a file or directory from a GitLab project",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "push_files",
+        "description": "Push multiple files to a GitLab project in a single commit",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "create_issue",
+        "description": "Create a new issue in a GitLab project",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "create_merge_request",
+        "description": "Create a new merge request in a GitLab project",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "fork_repository",
+        "description": "Fork a GitLab project to your account or specified namespace",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      },
+      {
+        "name": "create_branch",
+        "description": "Create a new branch in a GitLab project",
+        "inputSchema": {
+          "$schema": "http://json-schema.org/draft-07/schema#"
+        }
+      }
+    ],
+    "prompts": [],
+    "resources": [],
+    "resourceTemplates": [],
+    "timings": {
+      "connectMs": 7283,
+      "listMs": 15
+    },
+    "errors": [],
+    "schemaErrors": [
+      {
+        "kind": "tools",
+        "name": "create_or_update_file",
+        "message": "inputSchema.type: Invalid input: expected \"object\""
+      },
+      {
+        "kind": "tools",
+        "name": "search_repositories",
+        "message": "inputSchema.type: Invalid input: expected \"object\""
+      },
+      {
+        "kind": "tools",
+        "name": "create_repository",
+        "message": "inputSchema.type: Invalid input: expected \"object\""
+      },
+      {
+        "kind": "tools",
+        "name": "get_file_contents",
+        "message": "inputSchema.type: Invalid input: expected \"object\""
+      },
+      {
+        "kind": "tools",
+        "name": "push_files",
+        "message": "inputSchema.type: Invalid input: expected \"object\""
+      },
+      {
+        "kind": "tools",
+        "name": "create_issue",
+        "message": "inputSchema.type: Invalid input: expected \"object\""
+      },
+      {
+        "kind": "tools",
+        "name": "create_merge_request",
+        "message": "inputSchema.type: Invalid input: expected \"object\""
+      },
+      {
+        "kind": "tools",
+        "name": "fork_repository",
+        "message": "inputSchema.type: Invalid input: expected \"object\""
+      },
+      {
+        "kind": "tools",
+        "name": "create_branch",
+        "message": "inputSchema.type: Invalid input: expected \"object\""
+      }
+    ]
+  },
+  "findings": [
+    {
+      "ruleId": "MCP302",
+      "severity": "high",
+      "message": "tool \"create_or_update_file\" does not match the MCP schema (inputSchema.type: Invalid input: expected \"object\"). The official TypeScript SDK client rejects the whole list because of it.",
+      "location": "tool:create_or_update_file",
+      "blocking": true
+    },
+    {
+      "ruleId": "MCP302",
+      "severity": "high",
+      "message": "tool \"search_repositories\" does not match the MCP schema (inputSchema.type: Invalid input: expected \"object\"). The official TypeScript SDK client rejects the whole list because of it.",
+      "location": "tool:search_repositories",
+      "blocking": true
+    },
+    {
+      "ruleId": "MCP302",
+      "severity": "high",
+      "message": "tool \"create_repository\" does not match the MCP schema (inputSchema.type: Invalid input: expected \"object\"). The official TypeScript SDK client rejects the whole list because of it.",
+      "location": "tool:create_repository",
+      "blocking": true
+    },
+    {
+      "ruleId": "MCP302",
+      "severity": "high",
+      "message": "tool \"get_file_contents\" does not match the MCP schema (inputSchema.type: Invalid input: expected \"object\"). The official TypeScript SDK client rejects the whole list because of it.",
+      "location": "tool:get_file_contents",
+      "blocking": true
+    },
+    {
+      "ruleId": "MCP302",
+      "severity": "high",
+      "message": "tool \"push_files\" does not match the MCP schema (inputSchema.type: Invalid input: expected \"object\"). The official TypeScript SDK client rejects the whole list because of it.",
+      "location": "tool:push_files",
+      "blocking": true
+    },
+    {
+      "ruleId": "MCP302",
+      "severity": "high",
+      "message": "tool \"create_issue\" does not match the MCP schema (inputSchema.type: Invalid input: expected \"object\"). The official TypeScript SDK client rejects the whole list because of it.",
+      "location": "tool:create_issue",
+      "blocking": true
+    },
+    {
+      "ruleId": "MCP302",
+      "severity": "high",
+      "message": "tool \"create_merge_request\" does not match the MCP schema (inputSchema.type: Invalid input: expected \"object\"). The official TypeScript SDK client rejects the whole list because of it.",
+      "location": "tool:create_merge_request",
+      "blocking": true
+    },
+    {
+      "ruleId": "MCP302",
+      "severity": "high",
+      "message": "tool \"fork_repository\" does not match the MCP schema (inputSchema.type: Invalid input: expected \"object\"). The official TypeScript SDK client rejects the whole list because of it.",
+      "location": "tool:fork_repository",
+      "blocking": true
+    },
+    {
+      "ruleId": "MCP302",
+      "severity": "high",
+      "message": "tool \"create_branch\" does not match the MCP schema (inputSchema.type: Invalid input: expected \"object\"). The official TypeScript SDK client rejects the whole list because of it.",
+      "location": "tool:create_branch",
+      "blocking": true
+    },
+    {
+      "ruleId": "MCP302",
+      "severity": "low",
+      "message": "Server negotiated protocol 2024-11-05; latest supported by this checker is 2025-11-25.",
+      "fix": "Update your MCP SDK."
+    },
+    {
+      "ruleId": "MCP004",
+      "severity": "info",
+      "message": "Tool \"search_repositories\" has no readOnlyHint. If it only reads, mark it so clients can run it without confirmation.",
+      "location": "tool:search_repositories › annotations"
+    },
+    {
+      "ruleId": "MCP004",
+      "severity": "info",
+      "message": "Tool \"get_file_contents\" has no readOnlyHint. If it only reads, mark it so clients can run it without confirmation.",
+      "location": "tool:get_file_contents › annotations"
+    }
+  ],
+  "score": 59,
+  "grade": "D",
+  "categories": {
+    "security": {
+      "score": 100,
+      "findings": 0
+    },
+    "efficiency": {
+      "score": 100,
+      "findings": 0
+    },
+    "quality": {
+      "score": 100,
+      "findings": 0
+    },
+    "compliance": {
+      "score": 70,
+      "findings": 10
+    }
+  },
+  "stats": {
+    "tools": 9,
+    "prompts": 0,
+    "resources": 0,
+    "estimatedTokens": 359,
+    "perTool": [
+      {
+        "name": "get_file_contents",
+        "tokens": 44
+      },
+      {
+        "name": "fork_repository",
+        "tokens": 43
+      },
+      {
+        "name": "create_or_update_file",
+        "tokens": 42
+      },
+      {
+        "name": "push_files",
+        "tokens": 42
+      },
+      {
+        "name": "create_merge_request",
+        "tokens": 41
+      },
+      {
+        "name": "create_branch",
+        "tokens": 38
+      },
+      {
+        "name": "create_issue",
+        "tokens": 37
+      },
+      {
+        "name": "search_repositories",
+        "tokens": 36
+      },
+      {
+        "name": "create_repository",
+        "tokens": 36
+      }
+    ]
+  }
+}

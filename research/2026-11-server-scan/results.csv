@@ -1,0 +1,42 @@
+id,package,vendor,server_name,server_version,protocol,tools,prompts,resources,est_tokens,score,grade,security,efficiency,quality,compliance,critical,high,medium,low,annotated_tools
+memory,@modelcontextprotocol/server-memory@2.0.1,"MCP reference","memory-server",2.0.1,2025-11-25,9,0,1,1119,100,A,100,100,100,100,0,0,0,0,9
+sequential-thinking,@modelcontextprotocol/server-sequential-thinking@2.0.0,"MCP reference","sequential-thinking-server",2.0.0,2025-11-25,1,0,0,1010,100,A,100,100,100,100,0,0,0,0,1
+context7,@upstash/context7-mcp@4.4.4,"Upstash","Context7",4.4.4,2025-11-25,2,0,0,1412,100,A,100,100,100,100,0,0,0,0,2
+browserbase,@browserbasehq/mcp-server-browserbase@2.4.3,"Browserbase","Browserbase MCP Server",2.3.0,2025-11-25,9,0,0,1248,100,A,100,100,100,100,0,0,0,0,0
+tavily,tavily-mcp@0.2.22,"Tavily","tavily-mcp",0.2.22,2025-11-25,5,0,0,1924,100,A,100,100,100,100,0,0,0,0,0
+exa,exa-mcp-server@3.4.2,"Exa","exa-search-server",3.4.2,2025-11-25,2,1,1,464,100,A,100,100,100,100,0,0,0,0,2
+chrome-devtools,chrome-devtools-mcp@1.12.0,"Google Chrome team","chrome_devtools",1.12.0,2025-11-25,32,0,0,6948,100,A,100,100,100,100,0,0,0,0,32
+figma-context,figma-developer-mcp@0.13.2,"GLips (community)","Figma MCP Server",0.13.2,2025-11-25,2,0,0,925,100,A,100,100,100,100,0,0,0,0,2
+perplexity,@perplexity-ai/mcp-server@1.3.0,"Perplexity","ai.perplexity/mcp-server",1.3.0,2025-11-25,4,0,0,1691,100,A,100,100,100,100,0,0,0,0,4
+fetch,mcp-server-fetch,"MCP reference (Python)","mcp-fetch",2026.10.28,2025-11-25,1,1,0,262,100,A,100,100,100,100,0,0,0,0,1
+time,mcp-server-time,"MCP reference (Python)","mcp-time",2026.10.28,2025-11-25,2,0,0,286,100,A,100,100,100,100,0,0,0,0,2
+everything,@modelcontextprotocol/server-everything@2.1.0,"MCP reference","mcp-servers/everything",2.1.0,2025-11-25,16,4,9,2727,98,A,100,100,98,100,0,0,0,1,16
+slack-legacy,@modelcontextprotocol/server-slack@2025.4.25,"MCP reference (archived)","Slack MCP Server",1.0.0,2024-11-05,8,0,0,782,98,A,100,100,100,98,0,0,0,1,0
+supabase,@supabase/mcp-server-supabase@0.15.0,"Supabase","supabase",0.15.0,2025-11-25,0,0,0,329,98,A,100,100,100,98,0,0,0,1,0
+kubernetes,mcp-server-kubernetes@4.2.1,"Flux159 (community)","kubernetes",4.2.1,2025-11-25,23,1,5,5763,98,A,100,100,98,100,0,0,0,1,22
+n8n,n8n-mcp@2.99.2,"community","n8n-documentation-mcp",2.99.2,2025-03-26,7,0,5,2628,98,A,100,100,100,98,0,0,0,1,7
+elasticsearch,@elastic/mcp-server-elasticsearch@0.3.1,"Elastic","elasticsearch-mcp",0.3.1,2025-06-18,4,0,0,446,98,A,100,100,100,98,0,0,0,1,0
+apify,@apify/actors-mcp-server@0.20.0,"Apify","apify-mcp-server",0.20.0,2025-11-25,12,0,5,6691,98,A,100,98,100,100,0,0,0,1,12
+shopify-dev,@shopify/dev-mcp@1.18.0,"Shopify","shopify-dev-mcp",1.18.0,2025-11-25,5,1,0,6596,96,A,100,98,98,100,0,0,0,2,0
+postgres-legacy,@modelcontextprotocol/server-postgres@0.6.2,"MCP reference (archived)","example-servers/postgres",0.1.0,2024-11-05,1,0,0,33,94,A,100,100,98,96,0,0,0,3,0
+playwright,@playwright/mcp@0.0.84,"Microsoft","Playwright",1.65.0-alpha-2026-10-30,2025-11-25,25,0,0,4600,94,A,100,100,94,100,0,0,0,3,25
+heroku,@heroku/mcp-server@1.2.13,"Heroku","Heroku MCP Server",1.2.13,2025-11-25,33,0,1,5065,94,A,94,100,100,100,0,0,1,0,0
+git,mcp-server-git,"MCP reference (Python)","mcp-git",2026.10.28,2025-11-25,12,0,0,1241,94,A,100,100,94,100,0,0,0,3,12
+filesystem,@modelcontextprotocol/server-filesystem@2.1.0,"MCP reference","secure-filesystem-server",2.1.0,2025-11-25,14,0,0,2024,92,A,100,100,92,100,0,0,0,4,14
+hubspot,@hubspot/mcp-server@0.4.0,"HubSpot","hubspot-mcp-server",0.4.0,2025-11-25,21,0,0,9354,92,A,100,94,100,98,0,0,1,1,21
+pinecone,@pinecone-database/mcp@0.4.0,"Pinecone","pinecone-mcp",0.4.0,2025-11-25,12,0,0,8936,90,A,100,92,98,100,0,0,1,2,12
+mapbox,@mapbox/mcp-server@0.16.0,"Mapbox","Mapbox MCP server",0.16.0,2025-11-25,29,4,8,15699,90,A,100,90,100,100,0,0,1,2,29
+brightdata,@brightdata/mcp@4.1.1,"Bright Data","Bright Data",4.1.1,2025-11-25,32,2,0,4933,90,A,100,100,90,100,0,0,0,6,32
+github-legacy,@modelcontextprotocol/server-github@2025.4.8,"MCP reference (archived)","github-mcp-server",0.6.2,2024-11-05,26,0,0,3972,88,B,100,100,90,98,0,0,0,11,0
+sentry,@sentry/mcp-server@0.42.0,"Sentry","Sentry MCP",0.42.0,2025-11-25,9,0,0,5890,88,B,100,98,90,100,0,0,0,6,9
+currents,@currents/mcp@2.7.0,"Currents","currents",2.7.0,2025-11-25,43,3,4,16724,88,B,100,88,100,100,0,0,2,0,43
+azure,@azure/mcp@4.0.0-beta.4,"Microsoft","Azure MCP Server",4.0.0-beta.4,2025-11-25,73,0,0,18943,88,B,100,88,100,100,0,0,2,0,73
+mongodb,mongodb-mcp-server@3.2.2,"MongoDB","MongoDB MCP Server",3.2.2,2025-11-25,27,0,3,15046,86,B,100,86,100,100,0,0,1,4,27
+paypal,@paypal/mcp@1.8.1,"PayPal","PayPal",1.11.0,2025-11-25,28,0,0,10482,84,B,100,92,92,100,0,0,1,5,0
+notion,@notionhq/notion-mcp-server@2.6.1,"Notion","Notion API",1.0.0,2025-11-25,24,0,0,18676,82,B,100,92,90,100,0,0,1,13,24
+launchdarkly,@launchdarkly/mcp-server@0.7.2,"LaunchDarkly","LaunchDarkly",0.7.2,2025-11-25,30,0,0,7853,82,B,82,100,100,100,0,0,3,0,0
+firecrawl,firecrawl-mcp@3.36.0,"Firecrawl","firecrawl-fastmcp",3.36.0,2025-11-25,28,0,0,15789,78,C,100,88,90,100,0,0,1,20,28
+desktop-commander,@wonderwhy-er/desktop-commander@0.3.1,"community","desktop-commander",0.3.1,2025-11-25,25,0,2,12547,78,C,100,90,88,100,0,0,1,25,25
+circleci,@circleci/mcp-server-circleci@0.20.0,"CircleCI","mcp-server-circleci",1.0.0,2025-11-25,13,0,0,12758,76,C,100,84,92,100,0,0,1,9,5
+gitlab-legacy,@modelcontextprotocol/server-gitlab@2025.4.25,"MCP reference (archived)","gitlab-mcp-server",0.5.1,2024-11-05,9,0,0,359,59,D,100,100,100,70,0,9,0,1,0
+stripe,,,,,,,,,,,,,,,,,,,,

@@ -1,0 +1,1762 @@
+[
+  {
+    "id": "memory",
+    "vendor": "MCP reference",
+    "pkg": "@modelcontextprotocol/server-memory@2.0.1",
+    "name": "memory-server",
+    "ver": "2.0.1",
+    "proto": "2025-11-25",
+    "tools": 9,
+    "prompts": 0,
+    "res": 1,
+    "tokens": 1119,
+    "maxTool": {
+      "name": "create_entities",
+      "tokens": 214
+    },
+    "score": 100,
+    "grade": "A",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 100,
+        "findings": 0
+      },
+      "quality": {
+        "score": 100,
+        "findings": 0
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "info": 0
+    },
+    "ann": 9
+  },
+  {
+    "id": "sequential-thinking",
+    "vendor": "MCP reference",
+    "pkg": "@modelcontextprotocol/server-sequential-thinking@2.0.0",
+    "name": "sequential-thinking-server",
+    "ver": "2.0.0",
+    "proto": "2025-11-25",
+    "tools": 1,
+    "prompts": 0,
+    "res": 0,
+    "tokens": 1010,
+    "maxTool": {
+      "name": "sequentialthinking",
+      "tokens": 1010
+    },
+    "score": 100,
+    "grade": "A",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 100,
+        "findings": 0
+      },
+      "quality": {
+        "score": 100,
+        "findings": 0
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "info": 0
+    },
+    "ann": 1
+  },
+  {
+    "id": "context7",
+    "vendor": "Upstash",
+    "pkg": "@upstash/context7-mcp@4.4.4",
+    "name": "Context7",
+    "ver": "4.4.4",
+    "proto": "2025-11-25",
+    "tools": 2,
+    "prompts": 0,
+    "res": 0,
+    "tokens": 1412,
+    "maxTool": {
+      "name": "resolve-library-id",
+      "tokens": 724
+    },
+    "score": 100,
+    "grade": "A",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 100,
+        "findings": 0
+      },
+      "quality": {
+        "score": 100,
+        "findings": 0
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "info": 0
+    },
+    "ann": 2
+  },
+  {
+    "id": "browserbase",
+    "vendor": "Browserbase",
+    "pkg": "@browserbasehq/mcp-server-browserbase@2.4.3",
+    "name": "Browserbase MCP Server",
+    "ver": "2.3.0",
+    "proto": "2025-11-25",
+    "tools": 9,
+    "prompts": 0,
+    "res": 0,
+    "tokens": 1248,
+    "maxTool": {
+      "name": "browserbase_stagehand_observe",
+      "tokens": 298
+    },
+    "score": 100,
+    "grade": "A",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 100,
+        "findings": 0
+      },
+      "quality": {
+        "score": 100,
+        "findings": 0
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "info": 7
+    },
+    "ann": 0
+  },
+  {
+    "id": "tavily",
+    "vendor": "Tavily",
+    "pkg": "tavily-mcp@0.2.22",
+    "name": "tavily-mcp",
+    "ver": "0.2.22",
+    "proto": "2025-11-25",
+    "tools": 5,
+    "prompts": 0,
+    "res": 0,
+    "tokens": 1924,
+    "maxTool": {
+      "name": "tavily_search",
+      "tokens": 723
+    },
+    "score": 100,
+    "grade": "A",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 100,
+        "findings": 0
+      },
+      "quality": {
+        "score": 100,
+        "findings": 0
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "info": 7
+    },
+    "ann": 0
+  },
+  {
+    "id": "exa",
+    "vendor": "Exa",
+    "pkg": "exa-mcp-server@3.4.2",
+    "name": "exa-search-server",
+    "ver": "3.4.2",
+    "proto": "2025-11-25",
+    "tools": 2,
+    "prompts": 1,
+    "res": 1,
+    "tokens": 464,
+    "maxTool": {
+      "name": "web_search_exa",
+      "tokens": 290
+    },
+    "score": 100,
+    "grade": "A",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 100,
+        "findings": 0
+      },
+      "quality": {
+        "score": 100,
+        "findings": 0
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "info": 0
+    },
+    "ann": 2
+  },
+  {
+    "id": "chrome-devtools",
+    "vendor": "Google Chrome team",
+    "pkg": "chrome-devtools-mcp@1.12.0",
+    "name": "chrome_devtools",
+    "ver": "1.12.0",
+    "proto": "2025-11-25",
+    "tools": 32,
+    "prompts": 0,
+    "res": 0,
+    "tokens": 6948,
+    "maxTool": {
+      "name": "emulate",
+      "tokens": 606
+    },
+    "score": 100,
+    "grade": "A",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 100,
+        "findings": 0
+      },
+      "quality": {
+        "score": 100,
+        "findings": 0
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "info": 2
+    },
+    "ann": 32
+  },
+  {
+    "id": "figma-context",
+    "vendor": "GLips (community)",
+    "pkg": "figma-developer-mcp@0.13.2",
+    "name": "Figma MCP Server",
+    "ver": "0.13.2",
+    "proto": "2025-11-25",
+    "tools": 2,
+    "prompts": 0,
+    "res": 0,
+    "tokens": 925,
+    "maxTool": {
+      "name": "download_figma_images",
+      "tokens": 662
+    },
+    "score": 100,
+    "grade": "A",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 100,
+        "findings": 0
+      },
+      "quality": {
+        "score": 100,
+        "findings": 0
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "info": 1
+    },
+    "ann": 2
+  },
+  {
+    "id": "perplexity",
+    "vendor": "Perplexity",
+    "pkg": "@perplexity-ai/mcp-server@1.3.0",
+    "name": "ai.perplexity/mcp-server",
+    "ver": "1.3.0",
+    "proto": "2025-11-25",
+    "tools": 4,
+    "prompts": 0,
+    "res": 0,
+    "tokens": 1691,
+    "maxTool": {
+      "name": "perplexity_search",
+      "tokens": 443
+    },
+    "score": 100,
+    "grade": "A",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 100,
+        "findings": 0
+      },
+      "quality": {
+        "score": 100,
+        "findings": 0
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "info": 0
+    },
+    "ann": 4
+  },
+  {
+    "id": "fetch",
+    "vendor": "MCP reference (Python)",
+    "pkg": "mcp-server-fetch",
+    "name": "mcp-fetch",
+    "ver": "2026.10.28",
+    "proto": "2025-11-25",
+    "tools": 1,
+    "prompts": 1,
+    "res": 0,
+    "tokens": 262,
+    "maxTool": {
+      "name": "fetch",
+      "tokens": 262
+    },
+    "score": 100,
+    "grade": "A",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 100,
+        "findings": 0
+      },
+      "quality": {
+        "score": 100,
+        "findings": 0
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "info": 1
+    },
+    "ann": 1
+  },
+  {
+    "id": "time",
+    "vendor": "MCP reference (Python)",
+    "pkg": "mcp-server-time",
+    "name": "mcp-time",
+    "ver": "2026.10.28",
+    "proto": "2025-11-25",
+    "tools": 2,
+    "prompts": 0,
+    "res": 0,
+    "tokens": 286,
+    "maxTool": {
+      "name": "convert_time",
+      "tokens": 189
+    },
+    "score": 100,
+    "grade": "A",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 100,
+        "findings": 0
+      },
+      "quality": {
+        "score": 100,
+        "findings": 0
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 0,
+      "info": 0
+    },
+    "ann": 2
+  },
+  {
+    "id": "everything",
+    "vendor": "MCP reference",
+    "pkg": "@modelcontextprotocol/server-everything@2.1.0",
+    "name": "mcp-servers/everything",
+    "ver": "2.1.0",
+    "proto": "2025-11-25",
+    "tools": 16,
+    "prompts": 4,
+    "res": 9,
+    "tokens": 2727,
+    "maxTool": {
+      "name": "gzip-file-as-resource",
+      "tokens": 274
+    },
+    "score": 98,
+    "grade": "A",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 100,
+        "findings": 0
+      },
+      "quality": {
+        "score": 98,
+        "findings": 1
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 1,
+      "info": 0
+    },
+    "ann": 16
+  },
+  {
+    "id": "slack-legacy",
+    "vendor": "MCP reference (archived)",
+    "pkg": "@modelcontextprotocol/server-slack@2025.4.25",
+    "name": "Slack MCP Server",
+    "ver": "1.0.0",
+    "proto": "2024-11-05",
+    "tools": 8,
+    "prompts": 0,
+    "res": 0,
+    "tokens": 782,
+    "maxTool": {
+      "name": "slack_reply_to_thread",
+      "tokens": 142
+    },
+    "score": 98,
+    "grade": "A",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 100,
+        "findings": 0
+      },
+      "quality": {
+        "score": 100,
+        "findings": 0
+      },
+      "compliance": {
+        "score": 98,
+        "findings": 1
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 1,
+      "info": 5
+    },
+    "ann": 0
+  },
+  {
+    "id": "supabase",
+    "vendor": "Supabase",
+    "pkg": "@supabase/mcp-server-supabase@0.15.0",
+    "name": "supabase",
+    "ver": "0.15.0",
+    "proto": "2025-11-25",
+    "tools": 0,
+    "prompts": 0,
+    "res": 0,
+    "tokens": 329,
+    "score": 98,
+    "grade": "A",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 100,
+        "findings": 0
+      },
+      "quality": {
+        "score": 100,
+        "findings": 0
+      },
+      "compliance": {
+        "score": 98,
+        "findings": 1
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 1,
+      "info": 0
+    },
+    "ann": 0
+  },
+  {
+    "id": "kubernetes",
+    "vendor": "Flux159 (community)",
+    "pkg": "mcp-server-kubernetes@4.2.1",
+    "name": "kubernetes",
+    "ver": "4.2.1",
+    "proto": "2025-11-25",
+    "tools": 23,
+    "prompts": 1,
+    "res": 5,
+    "tokens": 5763,
+    "maxTool": {
+      "name": "kubectl_create",
+      "tokens": 972
+    },
+    "score": 98,
+    "grade": "A",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 100,
+        "findings": 0
+      },
+      "quality": {
+        "score": 98,
+        "findings": 1
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 1,
+      "info": 7
+    },
+    "ann": 22
+  },
+  {
+    "id": "n8n",
+    "vendor": "community",
+    "pkg": "n8n-mcp@2.99.2",
+    "name": "n8n-documentation-mcp",
+    "ver": "2.99.2",
+    "proto": "2025-03-26",
+    "tools": 7,
+    "prompts": 0,
+    "res": 5,
+    "tokens": 2628,
+    "maxTool": {
+      "name": "search_templates",
+      "tokens": 664
+    },
+    "score": 98,
+    "grade": "A",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 100,
+        "findings": 0
+      },
+      "quality": {
+        "score": 100,
+        "findings": 0
+      },
+      "compliance": {
+        "score": 98,
+        "findings": 1
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 1,
+      "info": 0
+    },
+    "ann": 7
+  },
+  {
+    "id": "elasticsearch",
+    "vendor": "Elastic",
+    "pkg": "@elastic/mcp-server-elasticsearch@0.3.1",
+    "name": "elasticsearch-mcp",
+    "ver": "0.3.1",
+    "proto": "2025-06-18",
+    "tools": 4,
+    "prompts": 0,
+    "res": 0,
+    "tokens": 446,
+    "maxTool": {
+      "name": "search",
+      "tokens": 194
+    },
+    "score": 98,
+    "grade": "A",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 100,
+        "findings": 0
+      },
+      "quality": {
+        "score": 100,
+        "findings": 0
+      },
+      "compliance": {
+        "score": 98,
+        "findings": 1
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 1,
+      "info": 4
+    },
+    "ann": 0
+  },
+  {
+    "id": "apify",
+    "vendor": "Apify",
+    "pkg": "@apify/actors-mcp-server@0.20.0",
+    "name": "apify-mcp-server",
+    "ver": "0.20.0",
+    "proto": "2025-11-25",
+    "tools": 12,
+    "prompts": 0,
+    "res": 5,
+    "tokens": 6691,
+    "maxTool": {
+      "name": "search-actors",
+      "tokens": 1372
+    },
+    "score": 98,
+    "grade": "A",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 98,
+        "findings": 1
+      },
+      "quality": {
+        "score": 100,
+        "findings": 0
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 1,
+      "info": 0
+    },
+    "ann": 12
+  },
+  {
+    "id": "shopify-dev",
+    "vendor": "Shopify",
+    "pkg": "@shopify/dev-mcp@1.18.0",
+    "name": "shopify-dev-mcp",
+    "ver": "1.18.0",
+    "proto": "2025-11-25",
+    "tools": 5,
+    "prompts": 1,
+    "res": 0,
+    "tokens": 6596,
+    "maxTool": {
+      "name": "learn_shopify_api",
+      "tokens": 3825
+    },
+    "score": 96,
+    "grade": "A",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 98,
+        "findings": 1
+      },
+      "quality": {
+        "score": 98,
+        "findings": 1
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 2,
+      "info": 5
+    },
+    "ann": 0
+  },
+  {
+    "id": "postgres-legacy",
+    "vendor": "MCP reference (archived)",
+    "pkg": "@modelcontextprotocol/server-postgres@0.6.2",
+    "name": "example-servers/postgres",
+    "ver": "0.1.0",
+    "proto": "2024-11-05",
+    "tools": 1,
+    "prompts": 0,
+    "res": 0,
+    "tokens": 33,
+    "maxTool": {
+      "name": "query",
+      "tokens": 33
+    },
+    "score": 94,
+    "grade": "A",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 100,
+        "findings": 0
+      },
+      "quality": {
+        "score": 98,
+        "findings": 1
+      },
+      "compliance": {
+        "score": 96,
+        "findings": 2
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 3,
+      "info": 1
+    },
+    "ann": 0
+  },
+  {
+    "id": "playwright",
+    "vendor": "Microsoft",
+    "pkg": "@playwright/mcp@0.0.84",
+    "name": "Playwright",
+    "ver": "1.65.0-alpha-2026-10-30",
+    "proto": "2025-11-25",
+    "tools": 25,
+    "prompts": 0,
+    "res": 0,
+    "tokens": 4600,
+    "maxTool": {
+      "name": "browser_take_screenshot",
+      "tokens": 381
+    },
+    "score": 94,
+    "grade": "A",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 100,
+        "findings": 0
+      },
+      "quality": {
+        "score": 94,
+        "findings": 3
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 3,
+      "info": 3
+    },
+    "ann": 25
+  },
+  {
+    "id": "heroku",
+    "vendor": "Heroku",
+    "pkg": "@heroku/mcp-server@1.2.13",
+    "name": "Heroku MCP Server",
+    "ver": "1.2.13",
+    "proto": "2025-11-25",
+    "tools": 33,
+    "prompts": 0,
+    "res": 1,
+    "tokens": 5065,
+    "maxTool": {
+      "name": "deploy_to_heroku",
+      "tokens": 1140
+    },
+    "score": 94,
+    "grade": "A",
+    "cat": {
+      "security": {
+        "score": 94,
+        "findings": 1
+      },
+      "efficiency": {
+        "score": 100,
+        "findings": 0
+      },
+      "quality": {
+        "score": 100,
+        "findings": 0
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 1,
+      "low": 0,
+      "info": 25
+    },
+    "ann": 0
+  },
+  {
+    "id": "git",
+    "vendor": "MCP reference (Python)",
+    "pkg": "mcp-server-git",
+    "name": "mcp-git",
+    "ver": "2026.10.28",
+    "proto": "2025-11-25",
+    "tools": 12,
+    "prompts": 0,
+    "res": 0,
+    "tokens": 1241,
+    "maxTool": {
+      "name": "git_log",
+      "tokens": 226
+    },
+    "score": 94,
+    "grade": "A",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 100,
+        "findings": 0
+      },
+      "quality": {
+        "score": 94,
+        "findings": 3
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 3,
+      "info": 0
+    },
+    "ann": 12
+  },
+  {
+    "id": "filesystem",
+    "vendor": "MCP reference",
+    "pkg": "@modelcontextprotocol/server-filesystem@2.1.0",
+    "name": "secure-filesystem-server",
+    "ver": "2.1.0",
+    "proto": "2025-11-25",
+    "tools": 14,
+    "prompts": 0,
+    "res": 0,
+    "tokens": 2024,
+    "maxTool": {
+      "name": "read_text_file",
+      "tokens": 211
+    },
+    "score": 92,
+    "grade": "A",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 100,
+        "findings": 0
+      },
+      "quality": {
+        "score": 92,
+        "findings": 4
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 4,
+      "info": 0
+    },
+    "ann": 14
+  },
+  {
+    "id": "hubspot",
+    "vendor": "HubSpot",
+    "pkg": "@hubspot/mcp-server@0.4.0",
+    "name": "hubspot-mcp-server",
+    "ver": "0.4.0",
+    "proto": "2025-11-25",
+    "tools": 21,
+    "prompts": 0,
+    "res": 0,
+    "tokens": 9354,
+    "maxTool": {
+      "name": "hubspot-search-objects",
+      "tokens": 1044
+    },
+    "score": 92,
+    "grade": "A",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 94,
+        "findings": 1
+      },
+      "quality": {
+        "score": 100,
+        "findings": 0
+      },
+      "compliance": {
+        "score": 98,
+        "findings": 1
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 1,
+      "low": 1,
+      "info": 0
+    },
+    "ann": 21
+  },
+  {
+    "id": "pinecone",
+    "vendor": "Pinecone",
+    "pkg": "@pinecone-database/mcp@0.4.0",
+    "name": "pinecone-mcp",
+    "ver": "0.4.0",
+    "proto": "2025-11-25",
+    "tools": 12,
+    "prompts": 0,
+    "res": 0,
+    "tokens": 8936,
+    "maxTool": {
+      "name": "search-records",
+      "tokens": 1202
+    },
+    "score": 90,
+    "grade": "A",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 92,
+        "findings": 2
+      },
+      "quality": {
+        "score": 98,
+        "findings": 1
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 1,
+      "low": 2,
+      "info": 0
+    },
+    "ann": 12
+  },
+  {
+    "id": "mapbox",
+    "vendor": "Mapbox",
+    "pkg": "@mapbox/mcp-server@0.16.0",
+    "name": "Mapbox MCP server",
+    "ver": "0.16.0",
+    "proto": "2025-11-25",
+    "tools": 29,
+    "prompts": 4,
+    "res": 8,
+    "tokens": 15699,
+    "maxTool": {
+      "name": "render_map_tool",
+      "tokens": 2115
+    },
+    "score": 90,
+    "grade": "A",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 90,
+        "findings": 3
+      },
+      "quality": {
+        "score": 100,
+        "findings": 0
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 1,
+      "low": 2,
+      "info": 0
+    },
+    "ann": 29
+  },
+  {
+    "id": "brightdata",
+    "vendor": "Bright Data",
+    "pkg": "@brightdata/mcp@4.1.1",
+    "name": "Bright Data",
+    "ver": "4.1.1",
+    "proto": "2025-11-25",
+    "tools": 32,
+    "prompts": 2,
+    "res": 0,
+    "tokens": 4933,
+    "maxTool": {
+      "name": "search_dataset",
+      "tokens": 844
+    },
+    "score": 90,
+    "grade": "A",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 100,
+        "findings": 0
+      },
+      "quality": {
+        "score": 90,
+        "findings": 6
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 6,
+      "info": 4
+    },
+    "ann": 32
+  },
+  {
+    "id": "github-legacy",
+    "vendor": "MCP reference (archived)",
+    "pkg": "@modelcontextprotocol/server-github@2025.4.8",
+    "name": "github-mcp-server",
+    "ver": "0.6.2",
+    "proto": "2024-11-05",
+    "tools": 26,
+    "prompts": 0,
+    "res": 0,
+    "tokens": 3972,
+    "maxTool": {
+      "name": "create_pull_request_review",
+      "tokens": 409
+    },
+    "score": 88,
+    "grade": "B",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 100,
+        "findings": 0
+      },
+      "quality": {
+        "score": 90,
+        "findings": 10
+      },
+      "compliance": {
+        "score": 98,
+        "findings": 1
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 11,
+      "info": 14
+    },
+    "ann": 0
+  },
+  {
+    "id": "sentry",
+    "vendor": "Sentry",
+    "pkg": "@sentry/mcp-server@0.42.0",
+    "name": "Sentry MCP",
+    "ver": "0.42.0",
+    "proto": "2025-11-25",
+    "tools": 9,
+    "prompts": 0,
+    "res": 0,
+    "tokens": 5890,
+    "maxTool": {
+      "name": "update_issue",
+      "tokens": 1294
+    },
+    "score": 88,
+    "grade": "B",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 98,
+        "findings": 1
+      },
+      "quality": {
+        "score": 90,
+        "findings": 5
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 0,
+      "low": 6,
+      "info": 2
+    },
+    "ann": 9
+  },
+  {
+    "id": "currents",
+    "vendor": "Currents",
+    "pkg": "@currents/mcp@2.7.0",
+    "name": "currents",
+    "ver": "2.7.0",
+    "proto": "2025-11-25",
+    "tools": 43,
+    "prompts": 3,
+    "res": 4,
+    "tokens": 16724,
+    "maxTool": {
+      "name": "currents-create-session",
+      "tokens": 1135
+    },
+    "score": 88,
+    "grade": "B",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 88,
+        "findings": 2
+      },
+      "quality": {
+        "score": 100,
+        "findings": 0
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 2,
+      "low": 0,
+      "info": 2
+    },
+    "ann": 43
+  },
+  {
+    "id": "azure",
+    "vendor": "Microsoft",
+    "pkg": "@azure/mcp@4.0.0-beta.4",
+    "name": "Azure MCP Server",
+    "ver": "4.0.0-beta.4",
+    "proto": "2025-11-25",
+    "tools": 73,
+    "prompts": 0,
+    "res": 0,
+    "tokens": 18943,
+    "maxTool": {
+      "name": "resiliencyagent",
+      "tokens": 518
+    },
+    "score": 88,
+    "grade": "B",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 88,
+        "findings": 2
+      },
+      "quality": {
+        "score": 100,
+        "findings": 0
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 2,
+      "low": 0,
+      "info": 67
+    },
+    "ann": 73
+  },
+  {
+    "id": "mongodb",
+    "vendor": "MongoDB",
+    "pkg": "mongodb-mcp-server@3.2.2",
+    "name": "MongoDB MCP Server",
+    "ver": "3.2.2",
+    "proto": "2025-11-25",
+    "tools": 27,
+    "prompts": 0,
+    "res": 3,
+    "tokens": 15046,
+    "maxTool": {
+      "name": "export",
+      "tokens": 3037
+    },
+    "score": 86,
+    "grade": "B",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 86,
+        "findings": 5
+      },
+      "quality": {
+        "score": 100,
+        "findings": 0
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 1,
+      "low": 4,
+      "info": 0
+    },
+    "ann": 27
+  },
+  {
+    "id": "paypal",
+    "vendor": "PayPal",
+    "pkg": "@paypal/mcp@1.8.1",
+    "name": "PayPal",
+    "ver": "1.11.0",
+    "proto": "2025-11-25",
+    "tools": 28,
+    "prompts": 0,
+    "res": 0,
+    "tokens": 10482,
+    "maxTool": {
+      "name": "create_invoice",
+      "tokens": 2672
+    },
+    "score": 84,
+    "grade": "B",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 92,
+        "findings": 2
+      },
+      "quality": {
+        "score": 92,
+        "findings": 4
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 1,
+      "low": 5,
+      "info": 14
+    },
+    "ann": 0
+  },
+  {
+    "id": "notion",
+    "vendor": "Notion",
+    "pkg": "@notionhq/notion-mcp-server@2.6.1",
+    "name": "Notion API",
+    "ver": "1.0.0",
+    "proto": "2025-11-25",
+    "tools": 24,
+    "prompts": 0,
+    "res": 0,
+    "tokens": 18676,
+    "maxTool": {
+      "name": "API-update-page-markdown",
+      "tokens": 1449
+    },
+    "score": 82,
+    "grade": "B",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 92,
+        "findings": 2
+      },
+      "quality": {
+        "score": 90,
+        "findings": 12
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 1,
+      "low": 13,
+      "info": 1
+    },
+    "ann": 24
+  },
+  {
+    "id": "launchdarkly",
+    "vendor": "LaunchDarkly",
+    "pkg": "@launchdarkly/mcp-server@0.7.2",
+    "name": "LaunchDarkly",
+    "ver": "0.7.2",
+    "proto": "2025-11-25",
+    "tools": 30,
+    "prompts": 0,
+    "res": 0,
+    "tokens": 7853,
+    "maxTool": {
+      "name": "create-metric",
+      "tokens": 767
+    },
+    "score": 82,
+    "grade": "B",
+    "cat": {
+      "security": {
+        "score": 82,
+        "findings": 3
+      },
+      "efficiency": {
+        "score": 100,
+        "findings": 0
+      },
+      "quality": {
+        "score": 100,
+        "findings": 0
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 3,
+      "low": 0,
+      "info": 15
+    },
+    "ann": 0
+  },
+  {
+    "id": "firecrawl",
+    "vendor": "Firecrawl",
+    "pkg": "firecrawl-mcp@3.36.0",
+    "name": "firecrawl-fastmcp",
+    "ver": "3.36.0",
+    "proto": "2025-11-25",
+    "tools": 28,
+    "prompts": 0,
+    "res": 0,
+    "tokens": 15789,
+    "maxTool": {
+      "name": "firecrawl_search",
+      "tokens": 2232
+    },
+    "score": 78,
+    "grade": "C",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 88,
+        "findings": 4
+      },
+      "quality": {
+        "score": 90,
+        "findings": 17
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 1,
+      "low": 20,
+      "info": 5
+    },
+    "ann": 28
+  },
+  {
+    "id": "desktop-commander",
+    "vendor": "community",
+    "pkg": "@wonderwhy-er/desktop-commander@0.3.1",
+    "name": "desktop-commander",
+    "ver": "0.3.1",
+    "proto": "2025-11-25",
+    "tools": 25,
+    "prompts": 0,
+    "res": 2,
+    "tokens": 12547,
+    "maxTool": {
+      "name": "start_search",
+      "tokens": 1736
+    },
+    "score": 78,
+    "grade": "C",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 90,
+        "findings": 3
+      },
+      "quality": {
+        "score": 88,
+        "findings": 23
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 1,
+      "low": 25,
+      "info": 1
+    },
+    "ann": 25
+  },
+  {
+    "id": "circleci",
+    "vendor": "CircleCI",
+    "pkg": "@circleci/mcp-server-circleci@0.20.0",
+    "name": "mcp-server-circleci",
+    "ver": "1.0.0",
+    "proto": "2025-11-25",
+    "tools": 13,
+    "prompts": 0,
+    "res": 0,
+    "tokens": 12758,
+    "maxTool": {
+      "name": "run_rollback_pipeline",
+      "tokens": 1576
+    },
+    "score": 76,
+    "grade": "C",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 84,
+        "findings": 6
+      },
+      "quality": {
+        "score": 92,
+        "findings": 4
+      },
+      "compliance": {
+        "score": 100,
+        "findings": 0
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 0,
+      "medium": 1,
+      "low": 9,
+      "info": 14
+    },
+    "ann": 5
+  },
+  {
+    "id": "gitlab-legacy",
+    "vendor": "MCP reference (archived)",
+    "pkg": "@modelcontextprotocol/server-gitlab@2025.4.25",
+    "name": "gitlab-mcp-server",
+    "ver": "0.5.1",
+    "proto": "2024-11-05",
+    "tools": 9,
+    "prompts": 0,
+    "res": 0,
+    "tokens": 359,
+    "maxTool": {
+      "name": "get_file_contents",
+      "tokens": 44
+    },
+    "score": 59,
+    "grade": "D",
+    "cat": {
+      "security": {
+        "score": 100,
+        "findings": 0
+      },
+      "efficiency": {
+        "score": 100,
+        "findings": 0
+      },
+      "quality": {
+        "score": 100,
+        "findings": 0
+      },
+      "compliance": {
+        "score": 70,
+        "findings": 10
+      }
+    },
+    "c": {
+      "critical": 0,
+      "high": 9,
+      "medium": 0,
+      "low": 1,
+      "info": 2
+    },
+    "ann": 0
+  },
+  {
+    "id": "stripe",
+    "failed": true
+  }
+]

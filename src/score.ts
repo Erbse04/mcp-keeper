@@ -6,6 +6,8 @@ import { VERSION } from "./version.js";
 export const SEVERITY_WEIGHT: Record<Severity, number> = { critical: 40, high: 15, medium: 6, low: 2, info: 0 };
 /** One noisy rule should not sink a server on its own (critical findings are exempt). */
 const PER_RULE_CAP = 30;
+/** Many small style issues should not outweigh one real problem. */
+const PER_RULE_LOW_CAP = 10;
 
 const CATEGORY_OF: Record<string, Category> = Object.fromEntries(RULES.map((r) => [r.id, r.category]));
 CATEGORY_OF["MCP010"] = "security";
@@ -15,15 +17,16 @@ export function categoryOf(ruleId: string): Category {
 }
 
 function deduction(findings: Finding[]): number {
-  const byRule = new Map<string, { normal: number; critical: number }>();
+  const byRule = new Map<string, { normal: number; low: number; critical: number }>();
   for (const f of findings) {
-    const e = byRule.get(f.ruleId) ?? { normal: 0, critical: 0 };
+    const e = byRule.get(f.ruleId) ?? { normal: 0, low: 0, critical: 0 };
     if (f.severity === "critical") e.critical += SEVERITY_WEIGHT.critical;
+    else if (f.severity === "low") e.low += SEVERITY_WEIGHT.low;
     else e.normal += SEVERITY_WEIGHT[f.severity];
     byRule.set(f.ruleId, e);
   }
   let total = 0;
-  for (const e of byRule.values()) total += e.critical + Math.min(e.normal, PER_RULE_CAP);
+  for (const e of byRule.values()) total += e.critical + Math.min(e.normal + Math.min(e.low, PER_RULE_LOW_CAP), PER_RULE_CAP);
   return total;
 }
 
@@ -39,6 +42,8 @@ export function scoreFindings(findings: Finding[]) {
   let score = Math.max(0, 100 - deduction(findings));
   // Any critical finding means the server should not be trusted as-is.
   if (findings.some((f) => f.severity === "critical")) score = Math.min(score, 40);
+  // A list the official SDK rejects means the server does not work in many clients.
+  if (findings.some((f) => f.blocking)) score = Math.min(score, 59);
   const categories = {} as Record<Category, CategoryScore>;
   for (const c of ["security", "efficiency", "quality", "compliance"] as Category[]) {
     const fs = findings.filter((f) => categoryOf(f.ruleId) === c);
