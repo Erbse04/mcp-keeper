@@ -1,6 +1,9 @@
 # Rules
 
-Every check, why it matters and how to fix it. Disable individual rules with `--disable ID[,ID…]`.
+Every check, why it matters and how to fix it. Disable individual rules with `--disable ID[,ID…]`. How findings turn into a score is described in [scoring.md](scoring.md).
+
+**Server rules:** [MCP001](#mcp001) · [MCP002](#mcp002) · [MCP003](#mcp003) · [MCP004](#mcp004) · [MCP005](#mcp005) · [MCP010](#mcp010) · [MCP101](#mcp101) · [MCP201](#mcp201) · [MCP202](#mcp202) · [MCP301](#mcp301) · [MCP302](#mcp302)  
+**Config rules:** [CFG001](#cfg001) · [CFG002](#cfg002) · [CFG003](#cfg003) · [CFG004](#cfg004) · [CFG005](#cfg005)
 
 ## Server rules (`mcp-keeper scan`)
 
@@ -96,6 +99,8 @@ Duplicate names (high); characters outside `A–Z a–z 0–9 _ - .` or longer t
 Entries that fail validation against the official MCP schema (high — the official TypeScript client rejects the whole list), failed list calls (medium), outdated protocol version (low), missing server version (low).
 
 ## Config rules (`mcp-keeper config`)
+
+See also [config-audit.md](config-audit.md) for the files that are discovered.
 
 ### CFG001
 

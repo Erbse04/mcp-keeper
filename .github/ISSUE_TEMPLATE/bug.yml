@@ -1,0 +1,38 @@
+name: Bug report
+description: mcp-keeper crashes, cannot connect to a server that works elsewhere, or produces wrong output.
+labels: ["bug"]
+body:
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command you ran
+      description: Redact tokens and keys.
+      render: bash
+    validations:
+      required: true
+  - type: textarea
+    id: output
+    attributes:
+      label: Output
+      description: If the server does not start, run again with `--show-stderr`.
+      render: text
+  - type: input
+    id: version
+    attributes:
+      label: mcp-keeper version
+      placeholder: output of `mcp-keeper --version`
+    validations:
+      required: true
+  - type: input
+    id: env
+    attributes:
+      label: OS and Node.js version
+      placeholder: macOS 15, Node 22.11
+    validations:
+      required: true

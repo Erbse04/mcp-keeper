@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Report a security vulnerability in mcp-keeper
+    url: https://github.com/Erbse04/mcp-keeper/security/advisories/new
+    about: Please report vulnerabilities privately, not as a public issue.
+  - name: Documentation
+    url: https://github.com/Erbse04/mcp-keeper/blob/main/docs/README.md
+    about: CLI reference, rules, CI setup and scoring.

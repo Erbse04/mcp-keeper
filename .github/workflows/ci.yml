@@ -1,20 +1,60 @@
 name: CI
+
 on:
   push:
     branches: [main]
   pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
+    name: Test (${{ matrix.os }}, Node ${{ matrix.node }})
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
-        node: [18, 22]
+        node: [18, 20, 22, 24]
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node }}
+          cache: npm
       - run: npm ci
       - run: npm run build
       - run: npm test
+
+  package:
+    name: Package and CLI smoke test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - name: Pack and install the tarball like a user would
+        run: |
+          npm pack
+          mkdir -p "$RUNNER_TEMP/consumer" && cd "$RUNNER_TEMP/consumer"
+          npm init -y >/dev/null
+          npm i "$GITHUB_WORKSPACE"/mcp-keeper-*.tgz
+          npx mcp-keeper --version
+          npx mcp-keeper rules >/dev/null
+          npx mcp-keeper scan --fail-on medium --report-md report.md -- node "$GITHUB_WORKSPACE/test/fixtures/server.mjs" "$GITHUB_WORKSPACE/test/fixtures/good.json"
+          cat report.md >> "$GITHUB_STEP_SUMMARY"
+      - name: The poisoned fixture must fail
+        run: |
+          set +e
+          node dist/cli.js scan --fail-on high -- node test/fixtures/server.mjs test/fixtures/evil.json
+          test $? -eq 1

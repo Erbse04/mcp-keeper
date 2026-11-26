@@ -63,4 +63,8 @@ describe("end to end against fixture servers", () => {
   it("reports a clear error for a server that cannot start", async () => {
     await expect(probe(["scan", "--timeout", "5000", "--", process.execPath, "-e", "console.error('boom: missing API key'); process.exit(1)"])).rejects.toMatchObject({ code: 2, stderr: expect.stringContaining("boom: missing API key") });
   }, 30_000);
+
+  it("explains what to try when a server does not answer in time", async () => {
+    await expect(probe(["scan", "--timeout", "1500", "--", process.execPath, "-e", "setInterval(() => {}, 1000)"])).rejects.toMatchObject({ code: 2, stderr: expect.stringContaining("--show-stderr") });
+  }, 30_000);
 });
