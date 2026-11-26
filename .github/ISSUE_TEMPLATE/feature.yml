@@ -1,0 +1,19 @@
+name: Feature request
+description: A new check, client, output format or option.
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What problem would this solve?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+  - type: textarea
+    id: examples
+    attributes:
+      label: Examples
+      description: For new checks, real (redacted) examples of text that should and should not be flagged help most.

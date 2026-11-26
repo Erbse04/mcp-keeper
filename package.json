@@ -12,11 +12,18 @@
   "keywords": [
     "mcp",
     "model-context-protocol",
+    "mcp-server",
     "security",
     "prompt-injection",
+    "tool-poisoning",
     "linter",
+    "scanner",
+    "sarif",
+    "github-action",
     "ai-agents",
-    "audit"
+    "ai-security",
+    "audit",
+    "cli"
   ],
   "author": "Tim Erben (https://www.tim-erben.de)",
   "license": "MIT",
@@ -38,10 +45,12 @@
   "types": "dist/index.d.ts",
   "files": [
     "dist",
+    "docs",
+    "!docs/RELEASING.md",
     "README.md",
     "README.de.md",
-    "LICENSE",
-    "docs"
+    "CHANGELOG.md",
+    "LICENSE"
   ],
   "engines": {
     "node": ">=18"
