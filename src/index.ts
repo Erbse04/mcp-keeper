@@ -1,4 +1,4 @@
-export { collectSnapshot, describeTarget, type Target, type ConnectOptions } from "./connect.js";
+export { collectSnapshot, describeTarget, proxyEnvironment, timeoutHint, PROXY_ENV_VARS, type Target, type ConnectOptions } from "./connect.js";
 export { analyze, scoreFindings, gradeFor, SEVERITY_WEIGHT } from "./score.js";
 export { RULES, nameWords } from "./rules.js";
 export { createBaseline, compareBaseline, loadBaseline, saveBaseline, type Baseline } from "./baseline.js";

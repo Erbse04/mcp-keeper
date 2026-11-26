@@ -35,6 +35,8 @@ npx mcp-keeper config
 
 Es gibt kein Konto und keine Telemetrie. Ausgaben sind als Text, Markdown, JSON, SARIF (GitHub Code Scanning) und als Badge möglich.
 
+Proxy- und Zertifikats-Einstellungen (`HTTPS_PROXY`, `NODE_EXTRA_CA_CERTS`, …) werden an den Server weitergegeben, damit `npx`/`uvx` ihn auch hinter einem Firmen-Proxy herunterladen kann. Antwortet ein Server nicht rechtzeitig, nennt die Fehlermeldung konkrete Lösungen.
+
 ## In CI und als GitHub Action
 
 ```yaml

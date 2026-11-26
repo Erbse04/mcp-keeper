@@ -6,6 +6,8 @@ All notable changes to this project are documented here. The format follows [Kee
 
 ### Changed
 
+- Proxy and CA variables (`HTTPS_PROXY`, `NO_PROXY`, `NODE_EXTRA_CA_CERTS`, …) are now forwarded to stdio servers, so servers started with `npx`/`uvx` work behind proxies without `--inherit-env`. Proxy URLs with credentials are not forwarded.
+- When a stdio server does not answer in time, the error now explains what to try (longer `--timeout` for first-time `npx`/`uvx` downloads, `--show-stderr`, proxy credentials).
 - `--version` and the version in reports are now read from `package.json` and can no longer drift from the published package.
 
 ### Documentation

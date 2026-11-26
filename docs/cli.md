@@ -29,7 +29,7 @@ mcp-keeper scan [options] --snapshot <file>        # saved snapshot, offline
 | `-u, --url <url>` | Remote server. Streamable HTTP is tried first, then legacy SSE. |
 | `-H, --header <header>` | HTTP header `Name: value` for remote servers. Repeatable. |
 | `-e, --env <NAME=value>` | Environment variable for stdio servers. Repeatable. |
-| `--inherit-env` | Pass your full environment to the stdio server. By default only a minimal set (`PATH`, `HOME`, `USER`, `SHELL`, `TERM`, … — the MCP SDK’s default) is passed, like MCP clients do. Use it for servers that need e.g. proxy variables — only for servers you trust. |
+| `--inherit-env` | Pass your full environment to the stdio server — only for servers you trust. By default only a minimal set is passed, like MCP clients do: the MCP SDK’s default (`PATH`, `HOME`, `USER`, `SHELL`, `TERM`, …) plus proxy and CA variables (`HTTP_PROXY`, `HTTPS_PROXY`, `NO_PROXY`, `ALL_PROXY` in both cases, `NODE_EXTRA_CA_CERTS`, `SSL_CERT_FILE`, `SSL_CERT_DIR`, `REQUESTS_CA_BUNDLE`). Proxy URLs that contain a user name or password are not forwarded; pass them with `-e` if the server needs them. |
 | `--cwd <dir>` | Working directory for the stdio server. |
 | `--timeout <ms>` | Connection and request timeout. Default `30000`. |
 | `--show-stderr` | Stream the server’s stderr, prefixed with `[server]`. Useful when a server fails to start. |
@@ -98,6 +98,8 @@ Prints every rule ID with category, title and description. The full explanations
 | `1` | `--fail-on` or `--min-score` threshold failed |
 | `2` | Could not start or connect to the server, or could not read the snapshot |
 
+If the server does not answer in time, the error lists what to try — for `npx`/`uvx` servers usually a longer `--timeout`, because the first start downloads the package.
+
 Invalid or missing arguments print the help and exit with `1`, so in CI check the job log if a run fails unexpectedly.
 
 ## Examples
@@ -118,6 +120,6 @@ mcp-keeper scan --url https://mcp.example.com/mcp -H "Authorization: Bearer $TOK
 # Console output plus all report files in one run
 mcp-keeper scan --report-md r.md --report-json r.json --report-sarif r.sarif --badge badge.json -- node build/index.js
 
-# Debug a server that does not start
+# Debug a server that does not start or times out (the error message lists hints)
 mcp-keeper scan --show-stderr --timeout 60000 -- node build/index.js
 ```

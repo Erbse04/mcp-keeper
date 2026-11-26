@@ -50,6 +50,43 @@ class ObservingTransport implements Transport {
   }
 }
 
+/**
+ * Network settings that stdio servers need behind proxies or with custom CAs. MCP clients
+ * usually do not pass them, which makes servers started via npx/uvx hang while downloading.
+ * They are forwarded by default; proxy URLs that contain credentials are not.
+ */
+export const PROXY_ENV_VARS = [
+  "HTTP_PROXY", "HTTPS_PROXY", "NO_PROXY", "ALL_PROXY",
+  "http_proxy", "https_proxy", "no_proxy", "all_proxy",
+  "NODE_EXTRA_CA_CERTS", "SSL_CERT_FILE", "SSL_CERT_DIR", "REQUESTS_CA_BUNDLE",
+] as const;
+
+/** The proxy and CA variables from `env` that are safe to forward to a server. */
+export function proxyEnvironment(env: Record<string, string | undefined> = process.env): Record<string, string> {
+  const out: Record<string, string> = {};
+  for (const name of PROXY_ENV_VARS) {
+    const value = env[name];
+    if (!value) continue;
+    if (/^[a-z][a-z0-9+.-]*:\/\/[^/@\s]*@/i.test(value)) continue; // user:password@proxy
+    out[name] = value;
+  }
+  return out;
+}
+
+const PACKAGE_RUNNERS = new Set(["npx", "bunx", "pnpx", "pnpm", "yarn", "uvx", "pipx", "uv", "docker", "podman"]);
+
+/** Extra advice for a stdio server that did not answer in time. */
+export function timeoutHint(target: Target, timeoutMs: number): string {
+  if (target.kind !== "stdio") return "";
+  const base = target.command.split(/[\\/]/).pop()!.replace(/\.(cmd|exe)$/i, "").toLowerCase();
+  const tips = [`Raise the timeout, e.g. --timeout ${Math.max(90_000, timeoutMs * 3)}.`, "Run with --show-stderr to see what the server prints."];
+  if (PACKAGE_RUNNERS.has(base)) {
+    tips.unshift(`"${base}" may still be downloading the server on first start — run the same command once on its own, or pin and install the package.`);
+    tips.push("Behind a proxy that needs credentials, pass the proxy variables with -e or use --inherit-env (only for servers you trust).");
+  }
+  return `\nHints:\n${tips.map((t) => `  - ${t}`).join("\n")}`;
+}
+
 export function describeTarget(t: Target): string {
   return t.kind === "stdio" ? [t.command, ...t.args].join(" ") : t.url;
 }
@@ -79,7 +116,7 @@ async function openClient(target: Target, opts: ConnectOptions, mode?: "streamab
     const t = new StdioClientTransport({
       command: target.command,
       args: target.args,
-      env: { ...getDefaultEnvironment(), ...(target.env ?? {}) },
+      env: { ...getDefaultEnvironment(), ...proxyEnvironment(), ...(target.env ?? {}) },
       cwd: target.cwd,
       stderr: "pipe",
     });
@@ -108,7 +145,9 @@ async function openClient(target: Target, opts: ConnectOptions, mode?: "streamab
   } catch (e) {
     await client.close().catch(() => {});
     const tail = stderrLines.slice(-15).join("\n");
-    const err = new Error(`${(e as Error).message}${tail ? `\n--- server stderr (last lines) ---\n${tail}` : ""}`);
+    const msg = (e as Error).message;
+    const hint = /timed out/i.test(msg) ? timeoutHint(target, timeoutMs) : "";
+    const err = new Error(`${msg}${tail ? `\n--- server stderr (last lines) ---\n${tail}` : ""}${hint}`);
     throw err;
   }
   return { client, observing, transport, connectMs: Date.now() - t0 };

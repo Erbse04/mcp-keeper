@@ -26,13 +26,14 @@ await writeFile("report.md", toMarkdown(result));
 
 Remote servers: `{ kind: "http", url, headers?, transport?: "auto" | "streamable-http" | "sse" }`.
 
-Note that `env` for stdio targets is merged into the MCP SDK’s minimal default environment, not into `process.env`.
+Note that `env` for stdio targets is merged into a minimal environment — the MCP SDK’s default plus the proxy and CA variables from `proxyEnvironment()` — not into `process.env`.
 
 ## Main exports
 
 | Export | Purpose |
 |---|---|
 | `collectSnapshot(target, options?)` | Connect, list tools/prompts/resources/templates, return a `ServerSnapshot`. Throws if the server cannot be reached. |
+| `proxyEnvironment(env?)`, `PROXY_ENV_VARS` | The proxy and CA variables forwarded to stdio servers. |
 | `analyze(snapshot, { disable?, extraFindings? })` | Run all rules and score them. Returns a `ScanResult`. |
 | `RULES` | The server rules (`id`, `title`, `category`, `description`, `check()`). |
 | `scoreFindings(findings)`, `gradeFor(score)`, `SEVERITY_WEIGHT` | The [scoring](scoring.md) logic on its own. |

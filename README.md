@@ -98,7 +98,7 @@ mcp-keeper scan -- node ./build/index.js
 mcp-keeper scan --url https://mcp.example.com/mcp          # Streamable HTTP, falls back to SSE
 ```
 
-Like MCP clients, `mcp-keeper` passes only a minimal environment (`PATH`, `HOME`, …) to stdio servers. Pass what the server needs with `-e NAME=value`, or use `--inherit-env` to pass your full environment — only for servers you trust, since that includes every secret in your shell.
+Like MCP clients, `mcp-keeper` passes only a minimal environment (`PATH`, `HOME`, …) to stdio servers, plus your proxy and CA settings (`HTTPS_PROXY`, `NO_PROXY`, `NODE_EXTRA_CA_CERTS`, …) so that `npx`/`uvx` can download the server. Pass what the server needs with `-e NAME=value`, or use `--inherit-env` to pass your full environment — only for servers you trust, since that includes every secret in your shell.
 
 ### Audit client configs
 
